@@ -1,30 +1,49 @@
 package Matrix;
-
+import Exception.NameNotFoundException;
 import java.util.*;
 
 public abstract class Table {
 	
-	public ArrayList<String> RowName;
-	public ArrayList<String> ColumnName;
-	public ArrayList<ArrayList<String>> Table;
-	public ArrayList<Integer> Size = new ArrayList<Integer>();
+	public ArrayList<String> rowNames;
+	public ArrayList<String> columnNames;
+	public ArrayList<ArrayList<Object>> values;
+	public ArrayList<Integer> size;
 	
-	public Table() {
+	public Table(ArrayList<String> rowNames, ArrayList<String> columnNames, 
+			ArrayList<ArrayList<Object>> values, ArrayList<Integer> size) {
+		this.rowNames = rowNames;
+		this.columnNames = columnNames;
+		this.values = values;
+		this.size = size;
 	}
 	
 	public ArrayList<String> getRowName() {
-		return RowName;
+		return rowNames;
 	}
 	public ArrayList<String> getColumnName() {
-		return ColumnName;
+		return columnNames;
 	}
-	public ArrayList<ArrayList<String>> getTable() {
-		return Table;
+	public ArrayList<ArrayList<Object>> getValues() {
+		return values;
 	}
 	public ArrayList<Integer> getSize() {
-		return Size;
+		return size;
 	}
 	
+	public ArrayList<Object> getItemsFromRowName(String rowName) throws NameNotFoundException {
+		int index = rowNames.indexOf(rowName);
+		if (index == -1) throw new NameNotFoundException("No such row name: " + rowName);
+		else return values.get(index);
+	}
 	
+	public ArrayList<Object> getItemsFromColumnName(String colName) throws NameNotFoundException {
+		int index = columnNames.indexOf(colName);
+		if (index == -1) throw new NameNotFoundException("No such column name:" + colName);
+		else {
+			ArrayList<Object> colItems = new ArrayList<Object>();
+			for (ArrayList<Object> row : values) colItems.add(row.get(index));
+			return colItems;
+		}
+	}
 
 }

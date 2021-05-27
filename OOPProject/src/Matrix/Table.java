@@ -9,14 +9,6 @@ public abstract class Table {
 	public ArrayList<ArrayList<Object>> values;
 	public ArrayList<Integer> size;
 	
-	public Table(ArrayList<String> rowNames, ArrayList<String> columnNames, 
-			ArrayList<ArrayList<Object>> values, ArrayList<Integer> size) {
-		this.rowNames = rowNames;
-		this.columnNames = columnNames;
-		this.values = values;
-		this.size = size;
-	}
-	
 	public ArrayList<String> getRowName() {
 		return rowNames;
 	}

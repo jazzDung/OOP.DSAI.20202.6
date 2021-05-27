@@ -82,4 +82,6 @@ public class TruthTable extends Table {
 		}
 		return this.values;
 	}
+	
+	
 }

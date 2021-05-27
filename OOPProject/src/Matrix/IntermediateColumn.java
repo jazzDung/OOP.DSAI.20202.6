@@ -1,9 +1,14 @@
 package Matrix;
 
-public class IntermediateColumn {
+import java.util.ArrayList;
 
-	public IntermediateColumn() {
+public class IntermediateColumn extends Table {
+	
+	public IntermediateColumn(TruthTable tt) {
 		// TODO Auto-generated constructor stub
+		for (ArrayList<Object> row:tt.getValues()) {
+			
+		}
 	}
 
 }

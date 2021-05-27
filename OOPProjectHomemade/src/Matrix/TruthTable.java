@@ -81,6 +81,10 @@ public class TruthTable extends Table {
 //		size.add(Column);
 //	}
 	
+	public void setNumberOfVariable(int numberOfVariable) {
+		this.numberOfVariable = numberOfVariable;
+	}
+
 	public ArrayList<ArrayList<Object>> NegateTable() {
 		for (int i = 0; i < this.values.size(); i++) {
 			for(int j = 0; j < this.values.get(i).size(); j++) {

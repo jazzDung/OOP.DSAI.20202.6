@@ -43,5 +43,8 @@ public class ThreeVariableScreen extends JFrame {
 		});
 	}
 	
+	public static void main(String[] args) {
+		new ThreeVariableScreen(new TruthTable(3));
+	}
 }
 

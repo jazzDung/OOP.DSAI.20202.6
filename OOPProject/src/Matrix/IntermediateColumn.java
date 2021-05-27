@@ -42,7 +42,7 @@ public class IntermediateColumn extends Table {
 	public static void main(String[] args) {
 		TruthTable tt = new TruthTable(3);
 		IntermediateColumn ic = new IntermediateColumn(tt);
-		System.out.println(ic.getValues().get(0).toString());
+		System.out.println(ic.getValues());
 		
 	}
 }

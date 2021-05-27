@@ -1,13 +1,60 @@
 package Matrix;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TruthTable extends Table {
 
-	public TruthTable(ArrayList<ArrayList<Object>> values, ArrayList<String> RowName, 
-			ArrayList<String> ColumnName, ArrayList<Integer> size) {
-		super(RowName, ColumnName, values, size);
-		
+	public TruthTable(int numVariable) {
+		ArrayList<String> rowName = new ArrayList<String>();
+		ArrayList<String> columnName;
+		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
+		if (numVariable == 3) {
+			columnName = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
+			for (int i = 0; i < 9; i ++) {
+				rowName.add(String.valueOf(i));
+			}
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", null)));
+			super.size = new ArrayList<Integer>(Arrays.asList(9, 4));
+
+			
+			
+		} else if (numVariable == 4) {
+			columnName = new ArrayList<String>(Arrays.asList("A", "B", "C", "D", "Y Value"));
+			for (int i = 0; i < 16; i ++) {
+				rowName.add(String.valueOf(i));		
+			}
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "0", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1", null)));
+			super.size = new ArrayList<Integer>(Arrays.asList(16, 4));
+
+		} else {
+//			throw an exception or smt
+		}
+		super.columnNames = columnName;
+		super.rowNames = rowName;
+		super.values = values;
 	}
 	
 //	public TruthTable(int Row,int Column) {
@@ -34,6 +81,5 @@ public class TruthTable extends Table {
 				}
 		}
 		return this.values;
-		}
 	}
-
+}

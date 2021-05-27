@@ -1,9 +1,7 @@
 package Matrix;
 
+import java.awt.Dimension;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.swing.JFrame;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -20,11 +18,14 @@ public class ThreeVariableScreen extends JFrame {
 		super();
 		JFrame stage = this;
 		this.table = table;
+	
+        Dimension d = new Dimension(1000,800);
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Truth Table");
 		this.setVisible(true);
+		this.setSize(d);
 		
 		Platform.runLater(new Runnable() {
 			@Override

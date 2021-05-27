@@ -35,8 +35,34 @@ public class FourVariableScreenController {
 		
 		super();
 		this.table = table;
+		this.stage = stage;
+		this.table.setNumberOfVariable(4);
 		
 	}
+	
+    @FXML
+    void btnSubmitPressed(ActionEvent event) {
+    	if (this.negate.getSelectedToggle() == Negate) {
+    		CreateTruthTable().NegateTable();
+    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    	}
+    	else {
+      		CreateTruthTable();
+    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    	}
+    }
+    
+    @FXML
+    void btnThreeVariablePressed(ActionEvent event) {
+    	new ThreeVariableScreen(new TruthTable());
+    	stage.dispose();
+    }
+
+    @FXML
+    void btnFourVariablePressed(ActionEvent event) {
+		new FourVariableScreen(new TruthTable());
+		stage.dispose();
+    }
 	
     @FXML 
     public TruthTable CreateTruthTable() {
@@ -133,29 +159,6 @@ public class FourVariableScreenController {
 		
 		return this.table;
     }
-    
-    @FXML
-    void btnSubmitPressed(ActionEvent event) {
-    	if (this.negate.getSelectedToggle() == Negate) {
-    		CreateTruthTable().NegateTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
-    	else {
-      		CreateTruthTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
-    }
-    
-    @FXML
-    void btnThreeVariablePressed(ActionEvent event) {
-    	new ThreeVariableScreen(new TruthTable());
-    }
-
-    @FXML
-    void btnFourVariablePressed(ActionEvent event) {
-		new FourVariableScreen(new TruthTable());
-    }
-    
 
     @FXML
     private RadioButton row11;

@@ -1,5 +1,6 @@
 package Matrix;
 
+import java.awt.Dimension;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javafx.application.Platform;
@@ -18,10 +19,14 @@ public class FourVariableScreen extends JFrame {
 		JFrame stage = this;
 		this.table = table;
 		
+        Dimension d = new Dimension(1000,800);
+		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Truth Table");
 		this.setVisible(true);
+		this.setSize(d);
+		
 		
 		Platform.runLater(new Runnable() {
 			@Override

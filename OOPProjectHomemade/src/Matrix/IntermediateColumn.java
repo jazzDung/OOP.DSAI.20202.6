@@ -35,8 +35,7 @@ public class IntermediateColumn extends Table {
 			this.values.get(count).add(groupRow);
 			count++;
 		}
-		
-		
+			
 	}
 	
 	public static void main(String[] args) {

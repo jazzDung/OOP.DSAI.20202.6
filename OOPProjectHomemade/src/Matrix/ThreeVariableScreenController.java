@@ -27,9 +27,22 @@ public class ThreeVariableScreenController {
 		
 		super();
 		this.table = table;
+		this.stage = stage;
 		this.table.setNumberOfVariable(3);
 		
 	}
+	
+    @FXML
+    void btnThreeVariablePressed(ActionEvent event) {
+    	new ThreeVariableScreen(new TruthTable());
+    	stage.dispose();
+    }
+
+    @FXML
+    void btnFourVariablePressed(ActionEvent event) {
+		new FourVariableScreen(new TruthTable());
+    	stage.dispose();
+    }
 	
     @FXML 
     public TruthTable CreateTruthTable() {
@@ -97,16 +110,6 @@ public class ThreeVariableScreenController {
       		CreateTruthTable();
     		tfTruthTable.setText(String.valueOf(table.values.toString()));
     	}
-    }
-    
-    @FXML
-    void btnThreeVariablePressed(ActionEvent event) {
-    	new ThreeVariableScreen(new TruthTable());
-    }
-
-    @FXML
-    void btnFourVariablePressed(ActionEvent event) {
-		new FourVariableScreen(new TruthTable());
     }
     
     @FXML

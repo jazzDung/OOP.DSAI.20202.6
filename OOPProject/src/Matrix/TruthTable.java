@@ -4,8 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TruthTable extends Table {
-
+	
+	private int numberOfVariable;
+	
+	public int getNumberOfVarivable() {
+		return numberOfVariable;
+	}
 	public TruthTable(int numVariable) {
+		this.numberOfVariable = numVariable;
 		ArrayList<String> rowName = new ArrayList<String>();
 		ArrayList<String> columnName = null;
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
@@ -14,14 +20,14 @@ public class TruthTable extends Table {
 			for (int i = 0; i < 9; i ++) {
 				rowName.add(String.valueOf(i));
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", null)));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", null)));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(9, 4));
 
 			

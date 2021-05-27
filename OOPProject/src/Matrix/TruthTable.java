@@ -7,7 +7,7 @@ public class TruthTable extends Table {
 
 	public TruthTable(int numVariable) {
 		ArrayList<String> rowName = new ArrayList<String>();
-		ArrayList<String> columnName;
+		ArrayList<String> columnName = null;
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
 		if (numVariable == 3) {
 			columnName = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));

@@ -2,11 +2,11 @@ package Matrix;
 import Exception.NameNotFoundException;
 import java.util.*;
 
-public abstract class Table {
+public class Table {
 	
-	public ArrayList<String> rowNames;
-	public ArrayList<String> columnNames;
-	public ArrayList<ArrayList<Object>> values;
+	public ArrayList<String> rowNames = new ArrayList<String>();
+	public ArrayList<String> columnNames = new ArrayList<String>();
+	public ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
 	public ArrayList<Integer> size;
 	
 	public ArrayList<String> getRowName() {

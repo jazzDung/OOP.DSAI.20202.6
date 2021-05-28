@@ -7,7 +7,6 @@ public class MinTerm extends Term {
 	private int name;
 	
 	public MinTerm(ArrayList<String> bitVals) {
-		this.name = name;
 		this.bitValues = bitVals;
 		String strBitVal = "";
 		for (int i = 0; i < bitVals.size(); i ++) {

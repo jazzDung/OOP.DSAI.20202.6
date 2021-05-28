@@ -13,16 +13,18 @@ public class IntermediateColumn extends Table {
 		int numVar = tt.getNumberOfVarivable();
 		@SuppressWarnings("unchecked")
 		ArrayList<Term>[] group = new ArrayList[numVar + 1];
-		System.out.println(tt.getValues());
+		for (int i = 0; i < 4; i ++) {
+			group[i] = new ArrayList<Term>();
+		}
+		
 		for (ArrayList<Object> row:tt.getValues()) {
-			System.out.println(Collections.frequency(row, "1"));
 			if (row.get(numVar).equals("1")) {
+				System.out.println(row);
 				ArrayList<String> bitVals = new ArrayList<String>();
 				for (int i = 0; i < numVar; i ++) {
 					bitVals.add((String) row.get(i));
 				}
 				MinTerm m = new MinTerm(bitVals);
-				group[Collections.frequency(row, "1") - 1] = new ArrayList<Term>();
 				group[Collections.frequency(row, "1") - 1].add(m);
 			}
 		}
@@ -30,7 +32,10 @@ public class IntermediateColumn extends Table {
 		this.values = new ArrayList<ArrayList<Object>>();
 		int count = 0;
 		for (ArrayList<Term> groupRow:group) {
-			System.out.println(groupRow);
+			for (Term t:groupRow) {
+				System.out.println(t.getBitValues());
+			}
+			System.out.println("nice");
 			this.values.add(new ArrayList<Object>());
 			this.values.get(count).add(groupRow);
 			count++;
@@ -41,7 +46,7 @@ public class IntermediateColumn extends Table {
 	public static void main(String[] args) {
 		TruthTable tt = new TruthTable(3);
 		IntermediateColumn ic = new IntermediateColumn(tt);
-		System.out.println(ic.getValues().get(0).toString());
+		System.out.println(ic.getValues());
 		
 	}
 }

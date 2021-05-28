@@ -3,16 +3,30 @@ package Term;
 import java.util.ArrayList;
 
 public class MinTerm extends Term {
+	
+	private int name;
+	
 	public MinTerm(ArrayList<String> bitVals) {
+		this.name = name;
 		this.bitValues = bitVals;
+		String strBitVal = "";
+		for (int i = 0; i < bitVals.size(); i ++) {
+			strBitVal += bitVals.get(i);
+		}
+		this.name = Integer.parseInt(strBitVal, 2);
 	}
+	
+	public int getName() {
+		return name;
+	}
+	
 	public static void  main(String[] args) {
 		ArrayList<String> bitVals = new ArrayList<String>();
 		bitVals.add("0");
-		bitVals.add("1");
+		bitVals.add("0");
 		bitVals.add("1");
 		bitVals.add("0");
 		MinTerm t = new MinTerm(bitVals);
-		System.out.println(t.getBitValues());
+		System.out.println(t.getName());
 	}
 }

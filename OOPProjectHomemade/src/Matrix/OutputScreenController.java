@@ -15,7 +15,6 @@ public class OutputScreenController {
 	
 	protected JFrame stage;
 	protected TruthTable table;
-	protected Stage demostage;
 
 	public OutputScreenController(TruthTable table, JFrame stage) {
 		
@@ -34,9 +33,6 @@ public class OutputScreenController {
 	private void initialize() {
 		Group.setCellValueFactory(new PropertyValueFactory<TruthTable, String>("Values"));
 		Table.setItems(FXCollections.observableArrayList(table));
-		
-		addIntermediateColumn (table, demostage);
-		addIntermediateColumn (table, demostage);
 	}
 	
 	public ObservableList<TruthTable> getTruthTable(){

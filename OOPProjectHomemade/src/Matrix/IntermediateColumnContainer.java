@@ -6,8 +6,8 @@ import Term.Term;
 
 public class IntermediateColumnContainer {
 	
-	ArrayList<IntermediateColumn> intermediateColumns = new ArrayList<IntermediateColumn>();
-	ArrayList<Term> unchecked = new ArrayList<Term>();
+	private ArrayList<IntermediateColumn> intermediateColumns = new ArrayList<IntermediateColumn>();
+	private ArrayList<Term> unchecked = new ArrayList<Term>();
 	
 	public IntermediateColumnContainer(TruthTable tt) {
 		// TODO Auto-generated constructor stub
@@ -19,7 +19,14 @@ public class IntermediateColumnContainer {
 			ic = icNext;
 		}
 	}
+
 	
+	public ArrayList<IntermediateColumn> getIntermediateColumns() {
+		return intermediateColumns;
+	}
+
+
+
 	public ArrayList<Term> getUnchecked() {
 		return unchecked;
 	}

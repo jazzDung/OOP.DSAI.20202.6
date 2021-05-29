@@ -43,15 +43,29 @@ public class FourVariableScreenController {
 	
     @FXML
     void btnSubmitPressed(ActionEvent event) {
-    	if (this.negate.getSelectedToggle() == Negate) {
-    		CreateTruthTable().NegateTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
-    	else {
-      		CreateTruthTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
+        if (this.negate.getSelectedToggle() == Negate) {
+            CreateTruthTable().NegateTable();
+            tfTruthTable.setText(String.valueOf(table.values.toString()));
+            new NewScreen(table);
+            stage.dispose();
+        }
+        else if (this.negate.getSelectedToggle() == Nope) {
+              CreateTruthTable();
+            tfTruthTable.setText(String.valueOf(table.values.toString()));
+            new NewScreen(table);
+            stage.dispose();
+        }
     }
+//    void btnSubmitPressed(ActionEvent event) {
+//    	if (this.negate.getSelectedToggle() == Negate) {
+//    		CreateTruthTable().NegateTable();
+//    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+//    	}
+//    	else {
+//      		CreateTruthTable();
+//    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+//    	}
+//    }
     
     @FXML
     void btnThreeVariablePressed(ActionEvent event) {

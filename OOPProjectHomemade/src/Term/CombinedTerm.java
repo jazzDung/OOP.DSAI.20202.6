@@ -25,7 +25,14 @@ public class CombinedTerm extends Term {
 			CombinedTermHelper((CombinedTerm) t1, (CombinedTerm) t2);
 		}
 	}
-
+	
+	public String getName() {
+		ArrayList<String> minTermNames = new ArrayList<String>();
+		for (MinTerm m : minTermList) {
+			minTermNames.add(m.getName());
+		}
+		return String.join(" - ", minTermNames);
+	}
 
 	public ArrayList<MinTerm> getMinTermList() {
 		return this.minTermList;

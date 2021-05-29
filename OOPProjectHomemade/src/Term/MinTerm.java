@@ -15,7 +15,11 @@ public class MinTerm extends Term {
 		this.name = Integer.parseInt(strBitVal, 2);
 	}
 	
-	public int getName() {
+	public String getName() {
+		return String.valueOf(name);
+	}
+	
+	public int getNameInt() {
 		return name;
 	}
 	

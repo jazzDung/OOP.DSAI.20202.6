@@ -102,30 +102,44 @@ public class ThreeVariableScreenController {
 		return this.table;
     }
     
-    @FXML
-    void btnSubmitPressed(ActionEvent event) {
-    	if (this.negate.getSelectedToggle() == Negate) {
-    		CreateTruthTable().NegateTable();
-    		
+//    void btnSubmitPressed(ActionEvent event) {
+//    	if (this.negate.getSelectedToggle() == Negate) {
+//    		CreateTruthTable().NegateTable();
+//    		
+////    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
+////    		for (Term t: input.getUnchecked()) {
+////    			System.out.println(t.getBitValues());
+////    		} 
+////    		
+////    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+//    	}
+//    	else if (this.negate.getSelectedToggle() == Nope) {
+//      		CreateTruthTable();
+//    		
 //    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
 //    		for (Term t: input.getUnchecked()) {
 //    			System.out.println(t.getBitValues());
-//    		} 
+//    		}
+//    		
+//    		System.out.println("Ayo");
 //    		
 //    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
-    	else if (this.negate.getSelectedToggle() == Nope) {
-      		CreateTruthTable();
-    		
-    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
-    		for (Term t: input.getUnchecked()) {
-    			System.out.println(t.getBitValues());
-    		}
-    		
-    		System.out.println("Ayo");
-    		
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
-    	}
+//    	}
+//    }
+    @FXML
+    void btnSubmitPressed(ActionEvent event) {
+        if (this.negate.getSelectedToggle() == Negate) {
+            CreateTruthTable().NegateTable();
+            tfTruthTable.setText(String.valueOf(table.values.toString()));
+            new NewScreen(table);
+            stage.dispose();
+        }
+        else if (this.negate.getSelectedToggle() == Nope) {
+              CreateTruthTable();
+            tfTruthTable.setText(String.valueOf(table.values.toString()));
+            new NewScreen(table);
+            stage.dispose();
+        }
     }
     
     @FXML

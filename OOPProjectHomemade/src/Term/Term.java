@@ -2,7 +2,8 @@ package Term;
 
 import java.util.ArrayList;
 
-public class Term {
+public abstract class Term {
+	
 	protected ArrayList<String> bitValues = new ArrayList<String>();
 	public boolean compareTerm(Term t) {
 		int count = 0;
@@ -11,7 +12,12 @@ public class Term {
 		}
 		return count == 1;
 	}
+	
 	public ArrayList<String> getBitValues() {
 		return bitValues;
 	}
+
+	public abstract String getName();
+	
+	
 }

@@ -38,7 +38,7 @@ public class NewScreen extends JFrame {
 		center.setLayout(new GridLayout(3, 3, 2, 2));
 		
 		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
-		for(IntermediateColumn column: container.getColumn()) {
+		for(IntermediateColumn column: container.getIntermediateColumns()) {
 			center.add(new ColumnBlock(column));
 		}
 		

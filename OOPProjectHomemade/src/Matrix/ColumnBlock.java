@@ -32,14 +32,32 @@ public class ColumnBlock extends JPanel {
 		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 20));
 		title.setAlignmentX(CENTER_ALIGNMENT);
 		
-        Object[][] data = new String[10][10];
+        String[][] data = new String[6][6];
 		
+        int count = 0;
+        System.out.println(column.getRowName());
 		for (String name: column.getRowName()) {
-			int i = 0;
+			
 			try {
-				data[i][0] = column.getItemsFromRowName(name);
+				Group group = (Group) column.getItemsFromRowName(name).get(0);
+				if (group.getGroupMembers().size() > 0) {
+					data[count][0] = name;
+					System.out.println(name);
+					ArrayList<Term> groupMembers = group.getGroupMembers();
+					ArrayList<Integer> checked = group.getChecked();
+					
+					for (int member = 0; member < checked.size(); member ++) {
+						ArrayList<String> bitVals = groupMembers.get(member).getBitValues();
+						data[count][1] = groupMembers.get(member).getName();
+						for (int dataIndex = 0; dataIndex < bitVals.size(); dataIndex ++) {
+							data[count][dataIndex+2] = String.valueOf(bitVals.get(dataIndex));
+						}
+						
+						data[count++][checked.size() + 4] = String.valueOf(checked.get(member));
+					}
+				}
 			} catch (NameNotFoundException e) {
-				System.out.println("HE HO");
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -47,7 +65,7 @@ public class ColumnBlock extends JPanel {
 		
         
         
-		String[] columnNames = { "Group", "Min Term", "A  B  C  D" };
+		String[] columnNames = { "Group", "Min Term", "A",  "B",  "C", "Checked" };
 		Table = new JTable(data, columnNames);
 		
 		

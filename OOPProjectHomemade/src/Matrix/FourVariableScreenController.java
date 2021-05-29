@@ -14,6 +14,7 @@ public class FourVariableScreenController {
 
 	protected JFrame stage;
 	protected TruthTable table;
+	
 	protected ArrayList<Object> rowValue0;
 	protected ArrayList<Object> rowValue1;
 	protected ArrayList<Object> rowValue2;

@@ -23,7 +23,7 @@ public class FourVariableScreen extends JFrame {
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Truth Table");
+		this.setTitle("4 Variable Truth Table");
 		this.setVisible(true);
 		this.setSize(d);
 		

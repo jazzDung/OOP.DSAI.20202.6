@@ -3,6 +3,8 @@ package Matrix;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
+
+import Term.Term;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -104,10 +106,24 @@ public class ThreeVariableScreenController {
     void btnSubmitPressed(ActionEvent event) {
     	if (this.negate.getSelectedToggle() == Negate) {
     		CreateTruthTable().NegateTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    		
+//    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
+//    		for (Term t: input.getUnchecked()) {
+//    			System.out.println(t.getBitValues());
+//    		} 
+//    		
+//    		tfTruthTable.setText(String.valueOf(table.values.toString()));
     	}
-    	else {
+    	else if (this.negate.getSelectedToggle() == Nope) {
       		CreateTruthTable();
+    		
+    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
+    		for (Term t: input.getUnchecked()) {
+    			System.out.println(t.getBitValues());
+    		}
+    		
+    		System.out.println("Ayo");
+    		
     		tfTruthTable.setText(String.valueOf(table.values.toString()));
     	}
     }

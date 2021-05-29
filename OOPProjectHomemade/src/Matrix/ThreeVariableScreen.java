@@ -23,7 +23,7 @@ public class ThreeVariableScreen extends JFrame {
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Truth Table");
+		this.setTitle("3 Variable Truth Table");
 		this.setVisible(true);
 		this.setSize(d);
 		
@@ -42,6 +42,10 @@ public class ThreeVariableScreen extends JFrame {
 				
 			}
 		});
+	}
+	
+	public static void main(String[] args) {
+		new ThreeVariableScreen(new TruthTable());
 	}
 	
 }

@@ -3,6 +3,8 @@ package Matrix;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import Exception.NameNotFoundException;
+
 public class TruthTable extends Table {
 	
 	
@@ -15,6 +17,16 @@ public class TruthTable extends Table {
 	public TruthTable() {
 		values = new ArrayList<ArrayList<Object>>();
 	}
+	
+	public ArrayList<String> getAllMinTerms() throws NameNotFoundException {
+		ArrayList<String> minTermNames = new ArrayList<String>();
+		for (String rowName : this.getRowName()) {
+			ArrayList<Object> row = this.getItemsFromRowName(rowName);
+			if (row.get(numberOfVariable).equals("1")) minTermNames.add(rowName);
+		}
+		return minTermNames;
+	}
+	
 	public TruthTable(int numVariable) {
 		this.numberOfVariable = numVariable;
 		ArrayList<String> rowName = new ArrayList<String>();

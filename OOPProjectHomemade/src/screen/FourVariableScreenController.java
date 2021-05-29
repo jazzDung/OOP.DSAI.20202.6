@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import table.TruthTable;
 
 public class FourVariableScreenController {
 

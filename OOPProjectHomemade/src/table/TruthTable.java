@@ -1,9 +1,9 @@
-package Matrix;
+package table;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import Exception.NameNotFoundException;
+import exception.NameNotFoundException;
 
 public class TruthTable extends Table {
 	

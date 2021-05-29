@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,6 +14,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import table.IntermediateColumn;
+import table.IntermediateColumnContainer;
+import table.TruthTable;
 
 public class NewScreen extends JFrame {
 	
@@ -38,7 +42,7 @@ public class NewScreen extends JFrame {
 		center.setLayout(new GridLayout(3, 3, 2, 2));
 		
 		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
-		for(IntermediateColumn column: container.getColumn()) {
+		for(IntermediateColumn column: container.getIntermediateColumns()) {
 			center.add(new ColumnBlock(column));
 		}
 		

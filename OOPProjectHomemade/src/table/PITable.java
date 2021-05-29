@@ -1,12 +1,12 @@
-package Matrix;
+package table;
 
 import java.lang.reflect.Array;
 import java.util.*;
 
-import Exception.NameNotFoundException;
-import Term.CombinedTerm;
-import Term.MinTerm;
-import Term.Term;
+import exception.NameNotFoundException;
+import term.CombinedTerm;
+import term.MinTerm;
+import term.Term;
 
 public class PITable extends Table{
 

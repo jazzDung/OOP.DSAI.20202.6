@@ -1,6 +1,7 @@
-package Matrix;
-import Exception.NameNotFoundException;
+package table;
 import java.util.*;
+
+import exception.NameNotFoundException;
 
 public class Table {
 	

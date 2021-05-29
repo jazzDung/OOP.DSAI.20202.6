@@ -1,4 +1,4 @@
-package Term;
+package term;
 
 import java.util.ArrayList;
 

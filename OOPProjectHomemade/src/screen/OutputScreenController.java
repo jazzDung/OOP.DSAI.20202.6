@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import javax.swing.JFrame;
 import javafx.collections.FXCollections;
@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import table.TruthTable;
 
 public class OutputScreenController {
 	

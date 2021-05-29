@@ -1,11 +1,11 @@
-package Matrix;
+package table;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Term.CombinedTerm;
-import Term.MinTerm;
-import Term.Term;
+import term.CombinedTerm;
+import term.MinTerm;
+import term.Term;
 
 public class IntermediateColumn extends Table {
 	public IntermediateColumn next() {

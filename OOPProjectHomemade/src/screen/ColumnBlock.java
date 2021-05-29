@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,8 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import Exception.NameNotFoundException;
-import Term.Term;
+import exception.NameNotFoundException;
+import table.IntermediateColumn;
+import term.Term;
 
 public class ColumnBlock extends JPanel {
 

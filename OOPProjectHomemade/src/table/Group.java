@@ -1,9 +1,9 @@
-package Matrix;
+package table;
 
 import java.util.ArrayList;
 
-import Term.MinTerm;
-import Term.Term;
+import term.MinTerm;
+import term.Term;
 
 public class Group {
 	ArrayList<Term> groupMembers = new ArrayList<Term>();

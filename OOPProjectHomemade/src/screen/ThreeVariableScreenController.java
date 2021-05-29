@@ -1,16 +1,18 @@
-package Matrix;
+package screen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
 
-import Term.Term;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import table.IntermediateColumnContainer;
+import table.TruthTable;
+import term.Term;
 
 public class ThreeVariableScreenController {
 

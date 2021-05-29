@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import java.awt.Dimension;
 import java.io.IOException;
@@ -8,24 +8,23 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import table.TruthTable;
 
-public class OutputScreen extends JFrame {
+public class FourVariableScreen extends JFrame {
 
 	protected TruthTable table;
-	protected JFrame stage;
 
-	public OutputScreen(TruthTable table, JFrame stage) {
+	public FourVariableScreen(TruthTable table) {
 		
 		super();
-		this.stage = stage;
+		JFrame stage = this;
 		this.table = table;
 		
         Dimension d = new Dimension(1000,800);
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Output");
+		this.setTitle("4 Variable Truth Table");
 		this.setVisible(true);
 		this.setSize(d);
 		
@@ -34,13 +33,11 @@ public class OutputScreen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/Matrix/OutputScreen.fxml"));
-					OutputScreenController controller = new OutputScreenController(table, stage);
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/Matrix/4_Variable.fxml"));
+					FourVariableScreenController controller = new FourVariableScreenController(table, stage);
 					loader.setController(controller);
-					Parent root = loader.load();		
-					Scene scene = new Scene(root, 1000, 800);	
-					fxPanel.setScene(scene);
-					
+					Parent root = loader.load();
+					fxPanel.setScene(new Scene(root, 1000, 800));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -50,3 +47,4 @@ public class OutputScreen extends JFrame {
 	}
 	
 }
+

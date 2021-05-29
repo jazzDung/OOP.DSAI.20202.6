@@ -1,4 +1,4 @@
-package Matrix;
+package screen;
 
 import java.awt.Dimension;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import table.TruthTable;
 
 public class ThreeVariableScreen extends JFrame {
 

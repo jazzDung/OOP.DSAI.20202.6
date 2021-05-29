@@ -1,8 +1,8 @@
-package Matrix;
+package table;
 
 import java.util.ArrayList;
 
-import Term.Term;
+import term.Term;
 
 public class IntermediateColumnContainer {
 	
@@ -29,5 +29,10 @@ public class IntermediateColumnContainer {
 		for (Term t:icc.getUnchecked()) {
 			System.out.println(t.getBitValues());
 		}
+	}
+
+	public ArrayList<IntermediateColumn> getIntermediateColumns() {
+		// TODO Auto-generated method stub
+		return intermediateColumns;
 	}
 }

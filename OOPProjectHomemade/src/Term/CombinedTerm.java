@@ -6,6 +6,14 @@ public class CombinedTerm extends Term {
 	
 	private ArrayList<MinTerm> minTermList = new ArrayList<MinTerm>();
 	
+	public String getName() {
+        ArrayList<String> minTermNames = new ArrayList<String>();
+        for (MinTerm m : minTermList) {
+            minTermNames.add(m.getName());
+        }
+        return String.join(" - ", minTermNames);
+	}
+	
 	public void CombinedTermHelper(MinTerm m1, MinTerm m2) {
 		this.minTermList.add(m1);
 		this.minTermList.add(m2);
@@ -14,7 +22,7 @@ public class CombinedTerm extends Term {
 	
 	public void CombinedTermHelper(CombinedTerm c1, CombinedTerm c2) {
 		for (MinTerm m : c1.getMinTermList()) this.minTermList.add(m);
-		for (MinTerm m : c1.getMinTermList()) this.minTermList.add(m);
+		for (MinTerm m : c2.getMinTermList()) this.minTermList.add(m);
 		computeBitValues(c1, c2);
 	}
 	

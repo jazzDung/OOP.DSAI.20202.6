@@ -15,9 +15,13 @@ public class MinTerm extends Term {
 		this.name = Integer.parseInt(strBitVal, 2);
 	}
 	
-	public int getName() {
+	public int getNameInt() {
 		return name;
 	}
+	
+	public String getName() {
+        return String.valueOf(name);
+    }
 	
 	public static void  main(String[] args) {
 		ArrayList<String> bitVals = new ArrayList<String>();
@@ -26,6 +30,6 @@ public class MinTerm extends Term {
 		bitVals.add("1");
 		bitVals.add("0");
 		MinTerm t = new MinTerm(bitVals);
-		System.out.println(t.getName());
+		System.out.println(t.getNameInt());
 	}
 }

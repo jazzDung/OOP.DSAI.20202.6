@@ -2,8 +2,10 @@ package Term;
 
 import java.util.ArrayList;
 
-public class Term {
+public abstract class Term {
 	protected ArrayList<String> bitValues = new ArrayList<String>();
+	public abstract String getName();
+	
 	public boolean compareTerm(Term t) {
 		int count = 0;
 		for (int i = 0; i < t.getBitValues().size(); i ++) {

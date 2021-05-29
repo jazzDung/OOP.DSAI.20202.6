@@ -54,21 +54,21 @@ public class TruthTable extends Table {
 			for (int i = 0; i < 16; i ++) {
 				rowName.add(String.valueOf(i));		
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(16, 4));
 

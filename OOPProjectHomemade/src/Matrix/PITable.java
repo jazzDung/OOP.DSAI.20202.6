@@ -13,21 +13,18 @@ public class PITable extends Table{
 	public PITable(IntermediateColumnContainer icc, TruthTable tt) throws NameNotFoundException {
 		ArrayList<Term> useTermWithDup = icc.getUnchecked();
 		ArrayList<Term> useTerm = new ArrayList<Term>();
-		Boolean add = true;
+
+		System.out.println("\n");
 		for(Term t1:useTermWithDup) {
+			Boolean add = true;
 			for(Term t2:useTerm) {
-				if(t1.getImplicant().equals(t2.getImplicant())) {
+				if(t1.getBitValues().equals(t2.getBitValues())) {
 					add = false;
 				}
 			}
 			if(add) {
 				useTerm.add(t1);
 			}
-		}
-		
-		System.out.println("BitValues of Unchecked");
-		for(Term t:useTerm) {
-			System.out.println(t.getBitValues());
 		}
 		System.out.println("MinTerm of Unchecked Terms");
 		for(Term t:useTerm) {
@@ -52,25 +49,8 @@ public class PITable extends Table{
 		}
 		this.rowNames = allImplicants;
 		
-//		SortedSet<Integer> allMinTermName = new TreeSet<Integer>();
-//		for(Term t:useTerm) {
-//			if(t instanceof MinTerm) {
-//				allMinTermName.add(new Integer(((MinTerm) t).getName()));
-//			}
-//			else if(t instanceof CombinedTerm) {
-//				for(MinTerm mt:((CombinedTerm) t).getMinTermList()) {
-//					allMinTermName.add(new Integer(mt.getName()));
-//				}
-//			}
-//		}
-//		ArrayList<String> allColumns = new ArrayList<String>();
-////		allColumns.add("PI");
-//		for(Integer i:allMinTermName) {
-//			allColumns.add(String.valueOf(i.intValue()));
-//		}
-		ArrayList<String> allMinTerm = tt.getAllMinTerm();
+		ArrayList<String> allMinTerm = tt.getAllMinTerms();
 		this.columnNames = allMinTerm;
-//		this.columnNames = allColumns;
 		
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
 		List<String> list = new ArrayList<String>(allMinTerm);

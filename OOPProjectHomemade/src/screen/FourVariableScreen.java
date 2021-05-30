@@ -33,7 +33,7 @@ public class FourVariableScreen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/Matrix/4_Variable.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/4_Variable.fxml"));
 					FourVariableScreenController controller = new FourVariableScreenController(table, stage);
 					loader.setController(controller);
 					Parent root = loader.load();

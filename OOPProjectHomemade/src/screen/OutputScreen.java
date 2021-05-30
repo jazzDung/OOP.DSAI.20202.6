@@ -44,13 +44,14 @@ public class OutputScreen extends JFrame {
 		center.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
 		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
+		
 		if (table.getNumberOfVariable() == 3) {
-			for(IntermediateColumn column: container.getColumn()) {
+			for(IntermediateColumn column: container.getIntermediateColumns()) {
 				center.add(new ThreeVariableColumnBlock(column));
 			}
 		}
 		else if (table.getNumberOfVariable() == 4) {
-			for(IntermediateColumn column: container.getColumn()) {
+			for(IntermediateColumn column: container.getIntermediateColumns()) {
 				center.add(new FourVariableColumnBlock(column));
 			}
 		}

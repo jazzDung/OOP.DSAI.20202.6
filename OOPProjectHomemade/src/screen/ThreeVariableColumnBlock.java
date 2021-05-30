@@ -34,7 +34,7 @@ public class ThreeVariableColumnBlock extends JPanel {
 		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 20));
 		title.setAlignmentX(CENTER_ALIGNMENT);
 		
-        String[][] data = new String[6][6];
+        String[][] data = new String[100][100];
 		
         int count = 0;
         System.out.println(column.getRowName());

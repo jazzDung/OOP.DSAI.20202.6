@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import exception.NameNotFoundException;
 import table.IntermediateColumn;
@@ -28,6 +29,7 @@ public class OutputScreen extends JFrame {
 	protected TruthTable table;
 	protected String outputType;
 	
+
 	public OutputScreen(TruthTable table, String outputType) {
 		
 		this.table = table;
@@ -78,6 +80,7 @@ public class OutputScreen extends JFrame {
 		}
 		return center;
 		}
+
 	
 	JPanel createNorth() {
 		JPanel north = new JPanel();

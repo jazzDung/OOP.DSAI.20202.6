@@ -118,5 +118,8 @@ public class TruthTable extends Table {
 		return this.values;
 	}
 	
-	
+	public static void main(String[] args) {
+		TruthTable t = new TruthTable(3);
+		System.out.println(t.getRowName());
+	}
 }

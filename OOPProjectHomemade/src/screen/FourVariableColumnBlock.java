@@ -31,7 +31,7 @@ public class FourVariableColumnBlock extends JPanel {
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-        String[][] data = new String[100][100];
+        String[][] data = new String[600][600];
 		
         int count = 0;
         System.out.println(column.getRowName());

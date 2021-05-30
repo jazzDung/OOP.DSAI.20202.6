@@ -1,5 +1,6 @@
 package screen;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 import exception.NameNotFoundException;
 import table.Group;
@@ -28,13 +32,7 @@ public class ThreeVariableColumnBlock extends JPanel {
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-//		JScrollPane sp = new JScrollPane(Table);  
-		
-		JLabel title = new JLabel("Box No.1");
-		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 20));
-		title.setAlignmentX(CENTER_ALIGNMENT);
-		
-        String[][] data = new String[6][6];
+        String[][] data = new String[100][100];
 		
         int count = 0;
         System.out.println(column.getRowName());
@@ -59,28 +57,36 @@ public class ThreeVariableColumnBlock extends JPanel {
 					}
 				}
 			} catch (NameNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
 		
         
-        
+        //Set column name and create table
 		String[] columnNames = { "Group", "Min Term", "A",  "B",  "C", "Checked" };
 		Table = new JTable(data, columnNames);
 		
+		// Allign center
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+		for (int i = 0; i < 6; i++) {
+			Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+		}
 		
+		//Set row height
+		Table.setRowHeight(20);
 
 		
-		
-		
+		for (int i = 0; i < 6; i++) {
+		    Table.getColumnModel().getColumn(i).setWidth(5);
+		}
 		
 		this.add(Box.createVerticalGlue());
-		this.add(title);
+		this.add(Table.getTableHeader(), BorderLayout.NORTH);
 		this.add(Table);
 		this.add(Box.createVerticalGlue());
-		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
 }

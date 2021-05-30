@@ -34,7 +34,7 @@ public class TruthTable extends Table {
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
 		if (numVariable == 3) {
 			columnName = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
-			for (int i = 0; i < 9; i ++) {
+			for (int i = 0; i < 8; i ++) {
 				rowName.add(String.valueOf(i));
 			}
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1")));
@@ -110,5 +110,8 @@ public class TruthTable extends Table {
 		return this.values;
 	}
 	
-	
+	public static void main(String[] args) {
+		TruthTable t = new TruthTable(3);
+		System.out.println(t.getRowName());
+	}
 }

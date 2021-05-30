@@ -35,4 +35,5 @@ public class IntermediateColumnContainer {
 		// TODO Auto-generated method stub
 		return intermediateColumns;
 	}
+
 }

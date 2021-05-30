@@ -125,7 +125,7 @@ public class FourVariableScreenController {
     	} else {this.rowValue8.add("1");}
     	if (this.row9.getSelectedToggle() == row90) {
     		rowValue9.add("0");
-    	} else {this.rowValue11.add("1");}
+    	} else {this.rowValue9.add("1");}
     	if (this.rowten.getSelectedToggle() == row100) {
     		rowValue10.add("0");
     	} else {this.rowValue10.add("1");}

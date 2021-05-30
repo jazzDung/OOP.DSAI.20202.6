@@ -34,16 +34,16 @@ public class TruthTable extends Table {
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
 		if (numVariable == 3) {
 			columnName = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
-			for (int i = 0; i < 9; i ++) {
+			for (int i = 0; i < 8; i ++) {
 				rowName.add(String.valueOf(i));
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(9, 4));
 
@@ -55,7 +55,7 @@ public class TruthTable extends Table {
 				rowName.add(String.valueOf(i));		
 			}
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", "1")));
@@ -64,7 +64,7 @@ public class TruthTable extends Table {
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1", "0")));

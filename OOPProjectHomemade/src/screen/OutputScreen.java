@@ -16,8 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import exception.NameNotFoundException;
 import table.IntermediateColumn;
 import table.IntermediateColumnContainer;
+import table.PITable;
 import table.TruthTable;
 
 public class OutputScreen extends JFrame {
@@ -55,8 +57,13 @@ public class OutputScreen extends JFrame {
 				center.add(new FourVariableColumnBlock(column));
 			}
 		}
-		
-		
+		center.add(new PIBlock(new PITable(container, table)));
+//		try {
+//			center.add(new PIBlock(new PITable(container, table)));
+//		} catch (NameNotFoundException e) {
+//			System.out.println("Bruh :(");
+//			e.printStackTrace();
+//		}
 		return center;
 		}
 	

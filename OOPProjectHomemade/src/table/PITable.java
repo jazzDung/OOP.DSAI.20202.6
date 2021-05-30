@@ -65,6 +65,8 @@ public class PITable extends Table{
 		this.rowNames = allImplicants;
 		
 		ArrayList<String> allMinTerm = tt.getAllMinTerms();
+		System.out.println("AllMinTerms");
+		System.out.println(allMinTerm);
 		this.columnNames = allMinTerm;
 		
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
@@ -77,6 +79,8 @@ public class PITable extends Table{
 					oneRow[list.indexOf(String.valueOf(mt.getNameInt()))] = "x";
 				}	
 			}else if(t instanceof MinTerm){
+				System.out.println("List");
+				System.out.println(list);
 				oneRow[list.indexOf(String.valueOf(((MinTerm) t).getNameInt()))] = "x";
 			}
 			ArrayList<Object> oneRowArrList = new ArrayList<Object>(Arrays.asList(oneRow));
@@ -207,7 +211,7 @@ public class PITable extends Table{
 	}
 	
 	public static void main(String[] args) throws NameNotFoundException {
-		TruthTable tt = new TruthTable(4);
+		TruthTable tt = new TruthTable(3);
 		IntermediateColumnContainer ic = new IntermediateColumnContainer(tt);
 		PITable pi = new PITable(ic, tt);
 		System.out.println(pi.getRowName());

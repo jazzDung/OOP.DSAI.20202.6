@@ -46,12 +46,12 @@ public class OutputScreen extends JFrame {
 		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
 		
 		if (table.getNumberOfVariable() == 3) {
-			for(IntermediateColumn column: container.getColumn()) {
+			for(IntermediateColumn column: container.getIntermediateColumns()) {
 				center.add(new ThreeVariableColumnBlock(column));
 			}
 		}
 		else if (table.getNumberOfVariable() == 4) {
-			for(IntermediateColumn column: container.getColumn()) {
+			for(IntermediateColumn column: container.getIntermediateColumns()) {
 				center.add(new FourVariableColumnBlock(column));
 			}
 		}

@@ -45,14 +45,14 @@ public class FourVariableScreenController {
 	
     @FXML
     void btnSubmitPressed(ActionEvent event) {
-    	if (this.negate.getSelectedToggle() == Negate) {
+    	if (this.OutputType.getSelectedToggle() == POS) {
     		CreateTruthTable().NegateTable();
-    		new OutputScreen(table);
+    		new OutputScreen(table, "POS");
     		stage.dispose();
     	}
-    	else if (this.negate.getSelectedToggle() == Nope) {
+    	else if (this.OutputType.getSelectedToggle() == SOP) {
       		CreateTruthTable();
-    		new OutputScreen(table);
+      		new OutputScreen(table, "SOP");
     		stage.dispose();
     	}
     }
@@ -144,6 +144,11 @@ public class FourVariableScreenController {
     	if (this.row15.getSelectedToggle() == row150) {
     		rowValue15.add("0");
     	} else {this.rowValue15.add("1");}
+    	
+    	this.table.columnNames = new ArrayList<String>(Arrays.asList("A", "B", "C", "D", "Y Value"));
+        for (int i = 0; i < 16; i ++) {
+            this.table.rowNames.add(String.valueOf(i));
+        }
     	
 		this.table.values.add(rowValue0);
 		this.table.values.add(rowValue1);
@@ -277,9 +282,6 @@ public class FourVariableScreenController {
     private ToggleGroup row4;
 
     @FXML
-    private RadioButton Nope;
-
-    @FXML
     private RadioButton POS;
 
     @FXML
@@ -335,11 +337,5 @@ public class FourVariableScreenController {
 
     @FXML
     private RadioButton SOP;
-
-    @FXML
-    private ToggleGroup negate;
-
-    @FXML
-    private RadioButton Negate;
 
 }

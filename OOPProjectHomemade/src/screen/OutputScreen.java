@@ -26,10 +26,12 @@ public class OutputScreen extends JFrame {
 	
 	protected JFrame stage;
 	protected TruthTable table;
+	protected String outputType;
 	
-	public OutputScreen(TruthTable table) {
+	public OutputScreen(TruthTable table, String outputType) {
 		
 		this.table = table;
+		this.outputType = outputType;
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(createNorth(), BorderLayout. NORTH);
@@ -46,6 +48,7 @@ public class OutputScreen extends JFrame {
 		center.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
 		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
+		System.out.println(container.getIntermediateColumns());
 		
 		if (table.getNumberOfVariable() == 3) {
 			for(IntermediateColumn column: container.getIntermediateColumns()) {
@@ -57,13 +60,22 @@ public class OutputScreen extends JFrame {
 				center.add(new FourVariableColumnBlock(column));
 			}
 		}
-		center.add(new PIBlock(new PITable(container, table)));
-//		try {
-//			center.add(new PIBlock(new PITable(container, table)));
-//		} catch (NameNotFoundException e) {
-//			System.out.println("Bruh :(");
-//			e.printStackTrace();
-//		}
+		
+		try {
+			PITable pi = new PITable(container, table);
+			center.add(new PIBlock(pi));
+			
+			JPanel result = new JPanel();
+			if(outputType.equals("POS")) {
+				result.add(new JLabel(pi.finalResultPOS()));
+			}else if(outputType.equals("SOP")) {
+				result.add(new JLabel(pi.finalResultSOP()));
+			}
+			
+			center.add(result);
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
 		return center;
 		}
 	

@@ -38,31 +38,32 @@ public class PIBlock extends JPanel{
 		
 		String[][] dataWithRowArray = new String[dataWithRow.size()][dataWithRow.get(0).size()];
 		for(int i=0; i<dataWithRow.size(); i++) {
-			dataWithRowArray[i] = (String[]) dataWithRow.get(i).toArray();
+			for(int j=0; j<dataWithRow.get(0).size(); j++) {
+				dataWithRowArray[i][j] = (String) dataWithRow.get(i).get(j);
+			}
 		}
 		
 		
 		ArrayList<String> col = new ArrayList<String>();
 		col.add("PI");
 		col.addAll(this.piTable.getColumnName());
-		String[] columnNames = (String[]) col.toArray();
+		String[] columnNames = new String[col.size()];
+		for(int i=0; i<col.size(); i++) {
+			columnNames[i] = col.get(i);
+		}
+//		String[] columnNames = (String[]) col.toArray();
 		
 		Table = new JTable(dataWithRowArray, columnNames);
 		
 		// Allign center
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-		for (int i = 0; i < 6; i++) {
-			Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-		}
+//		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+//		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+//		for (int i = 0; i < 6; i++) {
+//			Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+//		}
 				
 		//Set row height
 		Table.setRowHeight(20);
-
-				
-		for (int i = 0; i < 6; i++) {
-		    Table.getColumnModel().getColumn(i).setWidth(5);
-		}
 				
 		this.add(Box.createVerticalGlue());
 		this.add(Table.getTableHeader(), BorderLayout.NORTH);
@@ -71,9 +72,4 @@ public class PIBlock extends JPanel{
 		
 		
 	}
-	
-	public static void main(String[] args) {
-		
-	}
-
 }

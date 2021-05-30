@@ -10,7 +10,7 @@ public class TruthTable extends Table {
 	
 	private int numberOfVariable;
 	
-	public int getNumberOfVarivable() {
+	public int getNumberOfVariable() {
 		return numberOfVariable;
 	}
 	

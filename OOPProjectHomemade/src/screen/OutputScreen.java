@@ -1,53 +1,86 @@
 package screen;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
-import java.io.IOException;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import table.IntermediateColumn;
+import table.IntermediateColumnContainer;
 import table.TruthTable;
 
 public class OutputScreen extends JFrame {
-
-	protected TruthTable table;
+	
 	protected JFrame stage;
-
-	public OutputScreen(TruthTable table, JFrame stage) {
+	protected TruthTable table;
+	
+	public OutputScreen(TruthTable table) {
 		
-		super();
-		this.stage = stage;
 		this.table = table;
+		Container cp = getContentPane();
+		cp.setLayout(new BorderLayout());
+		cp.add(createNorth(), BorderLayout. NORTH);
+		cp.add(createCenter(), BorderLayout. CENTER);
+		setVisible(true);
+		setTitle("Intermediate Column");
+		setSize(750, 750);
+		}
+	
+	JPanel createCenter() {
 		
-        Dimension d = new Dimension(1000,800);
+		JPanel center = new JPanel();
+		center.setLayout(new GridLayout(3, 2, 30, 30));
+		center.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
-		JFXPanel fxPanel = new JFXPanel();
-		this.add(fxPanel);
-		this.setTitle("Output");
-		this.setVisible(true);
-		this.setSize(d);
-		
-		
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/Matrix/OutputScreen.fxml"));
-					OutputScreenController controller = new OutputScreenController(table, stage);
-					loader.setController(controller);
-					Parent root = loader.load();		
-					Scene scene = new Scene(root, 1000, 800);	
-					fxPanel.setScene(scene);
-					
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				
+		IntermediateColumnContainer container = new IntermediateColumnContainer(table);
+		if (table.getNumberOfVariable() == 3) {
+			for(IntermediateColumn column: container.getColumn()) {
+				center.add(new ThreeVariableColumnBlock(column));
 			}
-		});
-	}
+		}
+		else if (table.getNumberOfVariable() == 4) {
+			for(IntermediateColumn column: container.getColumn()) {
+				center.add(new FourVariableColumnBlock(column));
+			}
+		}
+		
+		
+		return center;
+		}
+	
+	JPanel createNorth() {
+		JPanel north = new JPanel();
+		north.setLayout(new BoxLayout(north, BoxLayout. Y_AXIS));
+		north.add(createHeader());
+		return north;
+		}
+	
+	JPanel createHeader() {
+		
+		JPanel header = new JPanel();
+		header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
+		
+		JLabel title = new JLabel("Intermediate Column");
+		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
+		title. setForeground(Color.BLACK);
+		
+		header.add(Box.createRigidArea(new Dimension (10, 10)));
+		header.add(title);
+		header.add(Box.createHorizontalGlue());
+		header.add(Box.createRigidArea(new Dimension (10, 10)));
+		
+		return header;
+		}
 	
 }

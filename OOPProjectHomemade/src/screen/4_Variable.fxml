@@ -231,7 +231,7 @@
                               <RadioButton fx:id="row151" mnemonicParsing="false" toggleGroup="$row15" GridPane.columnIndex="6" GridPane.rowIndex="16" />
                            </children>
                            <HBox.margin>
-                              <Insets left="20.0" top="10.0" />
+                              <Insets left="25.0" top="10.0" />
                            </HBox.margin>
                         </GridPane>
                      </children>
@@ -257,12 +257,15 @@
                            </HBox.margin>
                         </RadioButton>
                      </children>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </center>
          <top>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="178.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                <children>
                   <Label contentDisplay="CENTER" text="Logic Expression Normalizer">
                      <font>
@@ -294,7 +297,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="93.0" prefWidth="1024.0">
                      <children>
                         <Label prefHeight="28.0" prefWidth="103.0" text="Output type: ">
                            <font>
@@ -319,24 +322,10 @@
                         </RadioButton>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="21.0" prefWidth="97.0" text="Truth Table">
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="-1.0" top="14.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Lato Bold" size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="tfTruthTable" prefHeight="31.0" prefWidth="463.0" promptText="This is just for demo, final GUI won't have this">
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                  </HBox>
                </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin>
             </VBox>
          </top>
       </BorderPane>

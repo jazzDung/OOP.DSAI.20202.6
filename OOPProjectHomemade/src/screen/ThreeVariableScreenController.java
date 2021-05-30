@@ -10,9 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import table.IntermediateColumnContainer;
 import table.TruthTable;
-import term.Term;
 
 public class ThreeVariableScreenController {
 
@@ -108,25 +106,13 @@ public class ThreeVariableScreenController {
     void btnSubmitPressed(ActionEvent event) {
     	if (this.negate.getSelectedToggle() == Negate) {
     		CreateTruthTable().NegateTable();
-    		
-//    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
-//    		for (Term t: input.getUnchecked()) {
-//    			System.out.println(t.getBitValues());
-//    		} 
-//    		
-//    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    		new OutputScreen(table);
+    		stage.dispose();
     	}
     	else if (this.negate.getSelectedToggle() == Nope) {
       		CreateTruthTable();
-    		
-    		IntermediateColumnContainer input = new IntermediateColumnContainer(table);
-    		for (Term t: input.getUnchecked()) {
-    			System.out.println(t.getBitValues());
-    		}
-    		
-    		System.out.println("Ayo");
-    		
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    		new OutputScreen(table);
+    		stage.dispose();
     	}
     }
     
@@ -136,9 +122,6 @@ public class ThreeVariableScreenController {
     @FXML
     private Button ThreeVariable;
     
-    @FXML
-    private TextField tfTruthTable;
-
     @FXML
     private RadioButton row11;
 

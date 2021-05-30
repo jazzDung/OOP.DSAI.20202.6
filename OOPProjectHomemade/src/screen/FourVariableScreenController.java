@@ -3,6 +3,7 @@ package screen;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,11 +47,13 @@ public class FourVariableScreenController {
     void btnSubmitPressed(ActionEvent event) {
     	if (this.negate.getSelectedToggle() == Negate) {
     		CreateTruthTable().NegateTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    		new OutputScreen(table);
+    		stage.dispose();
     	}
-    	else {
+    	else if (this.negate.getSelectedToggle() == Nope) {
       		CreateTruthTable();
-    		tfTruthTable.setText(String.valueOf(table.values.toString()));
+    		new OutputScreen(table);
+    		stage.dispose();
     	}
     }
     
@@ -188,9 +191,6 @@ public class FourVariableScreenController {
 
     @FXML
     private ToggleGroup row14;
-
-    @FXML
-    private TextField tfTruthTable;
 
     @FXML
     private RadioButton row140;

@@ -55,7 +55,7 @@ public class IntermediateColumn extends Table {
 		this.columnNames.add("Term");
 		
 		
-		int numVar = tt.getNumberOfVarivable();
+		int numVar = tt.getNumberOfVariable();
 		Group[] groupArray = new Group[numVar + 1];
 		for (int i = 0; i < numVar + 1; i ++) {
 //			this.rowNames.add(String.valueOf(i));

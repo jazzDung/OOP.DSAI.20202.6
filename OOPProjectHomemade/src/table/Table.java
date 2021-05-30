@@ -5,10 +5,10 @@ import exception.NameNotFoundException;
 
 public class Table {
 	
-	private ArrayList<String> rowNames = new ArrayList<String>();
-	private ArrayList<String> columnNames = new ArrayList<String>();
-	private ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
-	private ArrayList<Integer> size;
+	public ArrayList<String> rowNames = new ArrayList<String>();
+	public ArrayList<String> columnNames = new ArrayList<String>();
+	public ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
+	public ArrayList<Integer> size;
 	
 	public ArrayList<String> getRowName() {
 		return rowNames;

@@ -90,6 +90,10 @@ public class ThreeVariableScreenController {
     		rowValue7.add("0");
     	} else {this.rowValue7.add("1");}
     	
+    	this.table.columnNames = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
+        for (int i = 0; i < 8; i ++) {
+            this.table.rowNames.add(String.valueOf(i));
+        }
 		this.table.values.add(rowValue0);
 		this.table.values.add(rowValue1);
 		this.table.values.add(rowValue2);
@@ -104,17 +108,25 @@ public class ThreeVariableScreenController {
     
     @FXML
     void btnSubmitPressed(ActionEvent event) {
-    	if (this.negate.getSelectedToggle() == Negate) {
+    	if (this.OutputType.getSelectedToggle() == POS) {
     		CreateTruthTable().NegateTable();
-    		new OutputScreen(table);
+    		new OutputScreen(table, "POS");
     		stage.dispose();
     	}
-    	else if (this.negate.getSelectedToggle() == Nope) {
+    	else if (this.OutputType.getSelectedToggle() == SOP) {
       		CreateTruthTable();
-    		new OutputScreen(table);
+      		new OutputScreen(table, "SOP");
     		stage.dispose();
     	}
     }
+    @FXML
+    private RadioButton SOP;
+
+    @FXML
+    private RadioButton POS;
+    
+    @FXML
+    private ToggleGroup OutputType;
     
     @FXML
     private Button FourVariable;
@@ -133,15 +145,6 @@ public class ThreeVariableScreenController {
 
     @FXML
     private Button submit;
-
-    @FXML
-    private ToggleGroup negate;
-
-    @FXML
-    private RadioButton Negate;
-    
-    @FXML
-    private RadioButton Nope;
 
     @FXML
     private RadioButton row70;

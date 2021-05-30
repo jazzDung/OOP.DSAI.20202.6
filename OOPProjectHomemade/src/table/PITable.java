@@ -22,7 +22,7 @@ public class PITable extends Table{
 		
 		ArrayList<Term> useTerm = new ArrayList<Term>();
 
-		System.out.println("\n");
+//		System.out.println("\n");
 		for(Term t1:useTermWithDup) {
 			Boolean add = true;
 			for(Term t2:useTerm) {
@@ -65,6 +65,8 @@ public class PITable extends Table{
 		this.rowNames = allImplicants;
 		
 		ArrayList<String> allMinTerm = tt.getAllMinTerms();
+		System.out.println("AllMinTerms");
+		System.out.println(allMinTerm);
 		this.columnNames = allMinTerm;
 		
 		ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
@@ -74,6 +76,12 @@ public class PITable extends Table{
 			Arrays.fill(oneRow, " ");
 			if(t instanceof CombinedTerm) {
 				for(MinTerm mt:((CombinedTerm) t).getMinTermList()) {
+					System.out.println("\n");
+					System.out.println("List");
+					System.out.println(list);
+					System.out.println("MinTerm need to be Checked");
+					System.out.println(mt.getNameInt());
+					
 					oneRow[list.indexOf(String.valueOf(mt.getNameInt()))] = "x";
 				}	
 			}else if(t instanceof MinTerm){
@@ -114,7 +122,11 @@ public class PITable extends Table{
 				piState[imp] = true;
 				Term t = this.useTerm.get(imp);
 				if(t instanceof MinTerm) {
-					uncoveredMinTerm.remove(((MinTerm) t).getNameInt());
+					System.out.println("MinTerm NameInt");
+					System.out.println(((MinTerm) t).getNameInt());
+					System.out.println("Uncovered MinTerm");
+					System.out.println(uncoveredMinTerm);
+					uncoveredMinTerm.remove(String.valueOf(((MinTerm) t).getNameInt()));
 				}else if (t instanceof CombinedTerm) {
 					for(MinTerm mt:((CombinedTerm) t).getMinTermList()) {
 						if(uncoveredMinTerm.contains(String.valueOf(mt.getNameInt()))) {
@@ -207,7 +219,7 @@ public class PITable extends Table{
 	}
 	
 	public static void main(String[] args) throws NameNotFoundException {
-		TruthTable tt = new TruthTable(4);
+		TruthTable tt = new TruthTable(3);
 		IntermediateColumnContainer ic = new IntermediateColumnContainer(tt);
 		PITable pi = new PITable(ic, tt);
 		System.out.println(pi.getRowName());

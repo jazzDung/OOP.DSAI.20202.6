@@ -2,6 +2,8 @@ package table;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 import exception.NameNotFoundException;
 
@@ -37,13 +39,13 @@ public class TruthTable extends Table {
 			for (int i = 0; i < 8; i ++) {
 				rowName.add(String.valueOf(i));
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(9, 4));
 
@@ -55,7 +57,7 @@ public class TruthTable extends Table {
 				rowName.add(String.valueOf(i));		
 			}
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", "1")));
@@ -64,7 +66,7 @@ public class TruthTable extends Table {
 			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "0")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0", "1")));
 			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1", "0")));
@@ -102,11 +104,17 @@ public class TruthTable extends Table {
 			for(int j = 0; j < this.values.get(i).size(); j++) {
 				if(this.values.get(i).get(j) == "0") { this.values.get(i).set(j,"1");}
 				else if(values.get(i).get(j) == "1") { this.values.get(i).set(j,"0");}
-				//futureproof
-				else if(values.get(i).get(j) == "and") { this.values.get(i).set(j,"or");}
-				else if(values.get(i).get(j) == "or") { this.values.get(i).set(j,"and");}
 				}
 		}
+//		Collections.sort(this.values, new Comparator<ArrayList<String>>() {
+//
+//			@Override
+//			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
+//				// TODO Auto-generated method stub
+//				return 0;
+//			}
+//		})
+		Collections.reverse(this.rowNames);
 		return this.values;
 	}
 	

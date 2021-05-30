@@ -1,9 +1,19 @@
 package screen;
 
-public class PIBlock {
+import javax.swing.JTable;
 
+public class PIBlock {
+	
+	protected JTable piTable;
+	
+	
 	public PIBlock() {
-		// TODO Auto-generated constructor stub
+
+		
+		
+		
+		
+		
 	}
 
 }

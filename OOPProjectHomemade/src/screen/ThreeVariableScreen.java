@@ -32,7 +32,7 @@ public class ThreeVariableScreen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/Matrix/3_Variable.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/3_Variable.fxml"));
 					ThreeVariableScreenController controller = new ThreeVariableScreenController(table, stage);
 					loader.setController(controller);
 					Parent root = loader.load();

@@ -32,6 +32,12 @@ public class ThreeVariableColumnBlock extends JPanel {
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
+//		JScrollPane sp = new JScrollPane(Table);  
+		
+		JLabel title = new JLabel("Box No.1");
+		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 20));
+		title.setAlignmentX(CENTER_ALIGNMENT);
+
         String[][] data = new String[100][100];
 		
         int count = 0;

@@ -47,6 +47,15 @@ public class IntermediateColumn extends Table {
 		}
 	}
 	
+	public boolean isEmpty() {
+		int count = 0;
+		for (ArrayList<Object> row : this.getValues()) {
+			Group g = (Group) row.get(0);
+			count += g.getGroupMembers().size();
+		}
+		return count == 0;
+	}
+	
 	public IntermediateColumn() {	
 	}
 	
@@ -83,6 +92,8 @@ public class IntermediateColumn extends Table {
 //		}
 	}
 	
+
+	
 	public ArrayList<Term> getUncheckedTerm() {
 		ArrayList<Term> unchecked = new ArrayList<Term>();
 		for (ArrayList<Object> row:this.values) {
@@ -100,6 +111,7 @@ public class IntermediateColumn extends Table {
 //		System.out.println(icNext.getValues());
 //		System.out.println(icNext.getRowName());
 		while (!(ic.getValues().isEmpty())) {
+			System.out.println(ic.isEmpty());
 			System.out.println("");
 			System.out.println("");
 

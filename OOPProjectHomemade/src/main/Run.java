@@ -1,4 +1,5 @@
 package main;
+import screen.FourVariableScreen;
 import screen.ThreeVariableScreen;
 import table.*;
 

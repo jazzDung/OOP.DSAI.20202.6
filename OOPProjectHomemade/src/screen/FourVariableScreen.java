@@ -13,11 +13,12 @@ import table.TruthTable;
 public class FourVariableScreen extends JFrame {
 
 	protected TruthTable table;
+	protected JFrame stage;
 
 	public FourVariableScreen(TruthTable table) {
 		
 		super();
-		JFrame stage = this;
+		JFrame stage = new JFrame();
 		this.table = table;
 		
         Dimension d = new Dimension(1000,800);

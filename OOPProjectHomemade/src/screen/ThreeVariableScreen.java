@@ -13,14 +13,16 @@ import table.TruthTable;
 public class ThreeVariableScreen extends JFrame {
 
 	protected TruthTable table;
+	protected JFrame stage;
+
 
 	public ThreeVariableScreen(TruthTable table) {
 		
 		super();
-		JFrame stage = this;
+		JFrame stage = new JFrame();
 		this.table = table;
 	
-        Dimension d = new Dimension(1000,800);
+        Dimension d = new Dimension(500,600);
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);

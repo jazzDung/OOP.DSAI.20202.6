@@ -6,6 +6,6 @@ import table.*;
 public class Run {
 	
 	public static void main(String[] args) {
-		new ThreeVariableScreen(new TruthTable());
+		new FourVariableScreen(new TruthTable());
 	}
 }

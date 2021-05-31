@@ -1,7 +1,7 @@
 Members
-	Phạm Đinh Gia Dũng - 20194428
-	Vũ Quốc Việt - 20194464
-	Phùng Quốc Việt - 20194463
+Phạm Đinh Gia Dũng - 20194428
+Vũ Quốc Việt - 20194464
+Phùng Quốc Việt - 20194463
 
 Assignment
 GUI

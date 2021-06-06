@@ -22,4 +22,4 @@ Phùng Quốc Việt - 20194463
 ### Report: Equally distributed
 
 ## Video link:
-https://drive.google.com/file/d/1qbej6VDD-AZvhiUbekBbt9B3aPThQCjh/view?usp=sharing
+https://drive.google.com/file/d/1X_AoXtaX1E9Rlmd_DxhvS-UEuBqr_qC3/view?usp=sharing

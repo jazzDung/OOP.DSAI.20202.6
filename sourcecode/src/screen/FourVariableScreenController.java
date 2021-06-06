@@ -45,37 +45,37 @@ public class FourVariableScreenController {
 	
     @FXML 
     public TruthTable fillTruthTable() {
-    	if (this.row0.getSelectedToggle() == row00) {table.values.get(0).add("0");} else {table.values.get(0).add("1");}
+    	if (this.row0.getSelectedToggle() == row00) {table.setYValue("0", "0");} else {table.setYValue("0", "1");}
+    
+    	if (this.row1.getSelectedToggle() == row10) {table.setYValue("1", "0");} else {table.setYValue("1", "1");}
     	
-    	if (this.row1.getSelectedToggle() == row10) {table.values.get(1).add("0");} else {table.values.get(1).add("1");}
+    	if (this.row2.getSelectedToggle() == row20) {table.setYValue("2", "0");} else {table.setYValue("2", "1");}
     	
-    	if (this.row2.getSelectedToggle() == row20) {table.values.get(2).add("0");} else {table.values.get(2).add("1");}
+    	if (this.row3.getSelectedToggle() == row30) {table.setYValue("3", "0");} else {table.setYValue("3", "1");}
     	
-    	if (this.row3.getSelectedToggle() == row30) {table.values.get(3).add("0");} else {table.values.get(3).add("1");}
+    	if (this.row4.getSelectedToggle() == row40) {table.setYValue("4", "0");} else {table.setYValue("4", "1");}
     	
-    	if (this.row4.getSelectedToggle() == row40) {table.values.get(4).add("0");} else {table.values.get(4).add("1");}
+    	if (this.row5.getSelectedToggle() == row50) {table.setYValue("5", "0");} else {table.setYValue("5", "1");}
     	
-    	if (this.row5.getSelectedToggle() == row50) {table.values.get(5).add("0");} else {table.values.get(5).add("1");}
+    	if (this.row6.getSelectedToggle() == row60) {table.setYValue("6", "0");} else {table.setYValue("6", "1");}
     	
-    	if (this.row6.getSelectedToggle() == row60) {table.values.get(6).add("0");} else {table.values.get(6).add("1");}
+    	if (this.row7.getSelectedToggle() == row70) {table.setYValue("7", "0");} else {table.setYValue("7", "1");}
     	
-    	if (this.row7.getSelectedToggle() == row70) {table.values.get(7).add("0");} else {table.values.get(7).add("1");}
+    	if (this.row8.getSelectedToggle() == row80) {table.setYValue("8", "0");} else {table.setYValue("8", "1");}
     	
-    	if (this.row8.getSelectedToggle() == row80) {table.values.get(8).add("0");} else {table.values.get(8).add("1");}
-    	
-    	if (this.row9.getSelectedToggle() == row90) {table.values.get(9).add("0");} else {table.values.get(9).add("1");}
+    	if (this.row9.getSelectedToggle() == row90) {table.setYValue("9", "0");} else {table.setYValue("9", "1");}
 
-    	if (this.rowten.getSelectedToggle() == row100) {table.values.get(10).add("0");} else {table.values.get(10).add("1");}
+    	if (this.rowten.getSelectedToggle() == row100) {table.setYValue("10", "0");} else {table.setYValue("10", "1");}
     	
-    	if (this.roweleven.getSelectedToggle() == row110) {table.values.get(11).add("0");} else {table.values.get(11).add("1");}
+    	if (this.roweleven.getSelectedToggle() == row110) {table.setYValue("11", "0");} else {table.setYValue("11", "1");}
     	
-    	if (this.row12.getSelectedToggle() == row120) {table.values.get(12).add("0");} else {table.values.get(12).add("1");}
+    	if (this.row12.getSelectedToggle() == row120) {table.setYValue("12", "0");} else {table.setYValue("12", "1");}
     	
-    	if (this.row13.getSelectedToggle() == row130) {table.values.get(13).add("0");} else {table.values.get(13).add("1");}
+    	if (this.row13.getSelectedToggle() == row130) {table.setYValue("13", "0");} else {table.setYValue("13", "1");}
     	
-    	if (this.row14.getSelectedToggle() == row140) {table.values.get(14).add("0");} else {table.values.get(14).add("1");}
+    	if (this.row14.getSelectedToggle() == row140) {table.setYValue("14", "0");} else {table.setYValue("14", "1");}
     	
-    	if (this.row15.getSelectedToggle() == row150) {table.values.get(15).add("0");} else {table.values.get(15).add("1");}
+    	if (this.row15.getSelectedToggle() == row150) {table.setYValue("15", "0");} else {table.setYValue("15", "1");}
 
 		return table;
     }

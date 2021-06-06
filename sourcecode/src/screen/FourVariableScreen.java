@@ -45,6 +45,5 @@ public class FourVariableScreen extends JFrame {
 			}
 		});
 	}
-	
 }
 

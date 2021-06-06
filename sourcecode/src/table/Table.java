@@ -38,5 +38,24 @@ public class Table {
 			return colItems;
 		}
 	}
+	
+	public void setYValue(String rowname, String value) throws NameNotFoundException {
+		if ((value.equals("0")) || (value.equals("1"))) {
+			getItemsFromRowName(rowname).set(-1, value);
+		}
+		else {
+//			throw exception or smt
+		}
+	}
+	
 
+	public void setRowNames(ArrayList<String> rowNames) {
+		this.rowNames = rowNames;
+	}
+
+	public void setColumnNames(ArrayList<String> columnNames) {
+		this.columnNames = columnNames;
+	}
+	
+	
 }

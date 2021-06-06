@@ -7,6 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
 	<classpathentry kind="lib" path="D:/eclipse/javafx-sdk-11.0.2/lib/javafx.base.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse/javafx-sdk-11.0.2/lib/javafx.controls.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse/javafx-sdk-11.0.2/lib/javafx.fxml.jar"/>

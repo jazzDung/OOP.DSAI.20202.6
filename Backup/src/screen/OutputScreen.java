@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
 
 import exception.NameNotFoundException;
 import table.IntermediateColumn;
@@ -37,8 +39,7 @@ public class OutputScreen extends JFrame implements ActionListener {
 
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());
-        cp.add(createNorth(), BorderLayout. NORTH);
-        cp.add(createCenter(), BorderLayout. CENTER);
+        cp.add(createCenter(), BorderLayout.CENTER);
         stage.add(new JScrollPane(cp), BorderLayout.CENTER);
         stage.setSize(800,800);
         stage.setTitle("Intermediate Column");
@@ -56,37 +57,56 @@ public class OutputScreen extends JFrame implements ActionListener {
 	        center.setLayout(boxlayout);
 	        center.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-
+    		JLabel section1 = new JLabel("Intermediate Column");
+    		section1. setFont(new Font(section1.getFont().getName(), Font.PLAIN, 30));
+    		section1. setForeground(Color.BLACK);
+    		section1.add(Box.createHorizontalGlue());
+    		
+    		center.add(section1);
+	        
 	        if (table.getNumberOfVariable() == 3) {
 	            for(IntermediateColumn column: container.getIntermediateColumns()) {
 	                center.add(new ThreeVariableColumnBlock(column));
-	                center.add(Box.createRigidArea(new Dimension(10, 30)));
+	                center.add(Box.createRigidArea(new Dimension(10, 20)));
 	            }
 	        }
 	        else if (table.getNumberOfVariable() == 4) {
 	            for(IntermediateColumn column: container.getIntermediateColumns()) {
 	                center.add(new FourVariableColumnBlock(column));
-	                center.add(Box.createRigidArea(new Dimension(10, 30)));
+	                center.add(Box.createRigidArea(new Dimension(10, 20)));
 	            }
 	        }
 	        
 	        try {
+	        	
+	    		JLabel section2 = new JLabel("PI Table");
+	    		section2.setFont(new Font(section2.getFont().getName(), Font.PLAIN, 30));
+	    		section2.setForeground(Color.BLACK);
+	    		section2.add(Box.createHorizontalGlue());
+	    		center.add(section2);
+	    		
 				PITable pi = new PITable(container, table);
 				center.add(new PIBlock(pi));
 				
 				if (outputType.equals("POS")) {
 					
-					JLabel title = new JLabel("Simplified expression:");
+					JLabel section3 = new JLabel("Simplified expression:");
 					JLabel expression = new JLabel(pi.finalResultPOS());
 					
-					title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 30));
-					title.setForeground(Color.BLACK);
+					section3.setFont(new Font(section3.getFont().getName(), Font.PLAIN, 30));
+					section3.setForeground(Color.BLACK);
 					
-					expression.setFont(new Font(expression.getFont().getName(), Font.PLAIN, 30));
-					expression.setForeground(Color.BLACK);
+				    String data[][]= {{pi.finalResultPOS()}};
+				    String column[]={"Result"};  
+				    
+					JTable result = new JTable(data, column);
 					
-					center.add(title);
-					center.add(expression);
+//					expression.setFont(new Font(expression.getFont().getName(), Font.PLAIN, 30));
+//					expression.setForeground(Color.BLACK);
+					
+					center.add(section3);
+					center.add(result);
+//					center.add(expression);
 					
 				} else if(outputType.equals("SOP")) {
 					JLabel title = new JLabel("Simplified expression");
@@ -108,39 +128,15 @@ public class OutputScreen extends JFrame implements ActionListener {
 				e.printStackTrace();
 			}
 	        
+			JButton restart = new JButton("Convert again");
+			restart.addActionListener(this);
+			restart.setPreferredSize(new Dimension (120, 50));
+			restart.setMaximumSize(new Dimension ( 120, 50));
+			center.add(restart);
+			
 			return center;
 			}
 	
-	JPanel createNorth() {
-		JPanel north = new JPanel();
-		north.setLayout(new BoxLayout(north, BoxLayout. Y_AXIS));
-		north.add(createHeader());
-		return north;
-		}
-	
-	JPanel createHeader() {
-		
-		JButton restart = new JButton("Convert again");
-		restart.addActionListener(this);
-		restart.setPreferredSize(new Dimension (120, 50));
-		restart.setMaximumSize(new Dimension ( 120, 50));
-		
-		JPanel header = new JPanel();
-		header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
-		
-		JLabel title = new JLabel("Intermediate Column");
-		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 40));
-		title. setForeground(Color.BLACK);
-		
-		header.add(Box.createRigidArea(new Dimension (10, 10)));
-		header.add(title);
-		header.add(Box.createHorizontalGlue());
-		header.add(restart);
-		header.add(Box.createRigidArea(new Dimension (10, 10)));
-		
-		return header;
-		
-		}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

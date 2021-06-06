@@ -33,9 +33,6 @@ public class ThreeVariableColumnBlock extends JPanel {
 		String[] columnNames = { "Group", "Min Term", "A",  "B",  "C", "Checked" };
 		DefaultTableModel table = new DefaultTableModel(columnNames, 0);
 		
-		JLabel title = new JLabel("Box No.1");
-		title. setFont(new Font(title.getFont().getName(), Font.PLAIN, 20));
-		title.setAlignmentX(CENTER_ALIGNMENT);
 
 //        String[][] data = new String[100][100];
         boolean firstRow;

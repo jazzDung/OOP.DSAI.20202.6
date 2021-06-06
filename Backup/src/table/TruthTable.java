@@ -104,14 +104,7 @@ public class TruthTable extends Table {
 				else if(values.get(i).get(j) == "1") { this.values.get(i).set(j,"0");}
 				}
 		}
-//		Collections.sort(this.values, new Comparator<ArrayList<String>>() {
-//
-//			@Override
-//			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
-//				// TODO Auto-generated method stub
-//				return 0;
-//			}
-//		})
+
 		Collections.reverse(this.rowNames);
 		return this.values;
 	}

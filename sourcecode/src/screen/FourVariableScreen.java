@@ -13,17 +13,16 @@ import table.TruthTable;
 public class FourVariableScreen extends JFrame {
 
 	protected TruthTable table;
-	protected JFrame stage;
+	public static JFXPanel fxPanel;
 
 	public FourVariableScreen(TruthTable table) {
 		
 		super();
-		JFrame stage = new JFrame();
 		this.table = table;
 		
-        Dimension d = new Dimension(1000,800);
+        Dimension d = new Dimension(900, 650);
 		
-		JFXPanel fxPanel = new JFXPanel();
+		fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("4 Variable Truth Table");
 		this.setVisible(true);
@@ -34,8 +33,8 @@ public class FourVariableScreen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/4_Variable.fxml"));
-					FourVariableScreenController controller = new FourVariableScreenController(table, stage);
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/new_4_Variable.fxml"));
+					FourVariableScreenController controller = new FourVariableScreenController();
 					loader.setController(controller);
 					Parent root = loader.load();
 					fxPanel.setScene(new Scene(root, 1000, 800));

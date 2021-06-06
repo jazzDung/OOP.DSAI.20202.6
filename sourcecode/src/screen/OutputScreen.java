@@ -131,6 +131,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -139,6 +141,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 import exception.NameNotFoundException;
 import table.IntermediateColumn;
@@ -146,11 +149,12 @@ import table.IntermediateColumnContainer;
 import table.PITable;
 import table.TruthTable;
 
-public class OutputScreen extends JFrame implements ActionListener {
+public class OutputScreen extends JFrame {
 	
 	protected JFrame stage;
 	protected TruthTable table;
 	protected String outputType;
+	private Container cp;
 	
 	public OutputScreen(TruthTable table, String outputType) {
 
@@ -158,7 +162,7 @@ public class OutputScreen extends JFrame implements ActionListener {
         JFrame stage = new JFrame();
         this.table = table;
 
-        Container cp = getContentPane();
+        cp = getContentPane();
         cp.setLayout(new BorderLayout());
         cp.add(createNorth(), BorderLayout. NORTH);
         cp.add(createCenter(), BorderLayout. CENTER);
@@ -244,7 +248,7 @@ public class OutputScreen extends JFrame implements ActionListener {
 	JPanel createHeader() {
 		
 		JButton restart = new JButton("Convert again");
-		restart.addActionListener(this);
+		restart.addActionListener(new ConvertAgainListener());
 		restart.setPreferredSize(new Dimension (120, 50));
 		restart.setMaximumSize(new Dimension ( 120, 50));
 		
@@ -264,14 +268,25 @@ public class OutputScreen extends JFrame implements ActionListener {
 		return header;
 		
 		}
+	
+	private class ConvertAgainListener implements ActionListener {
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String button = e.getActionCommand();
-		if (button.equals("Convert again")) {
-			new ThreeVariableScreen(new TruthTable());
-			this.dispose();
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			new ThreeVariableScreen();
+			JFrame f = (JFrame) SwingUtilities.getWindowAncestor(cp);
+			f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
 		}
+		
 	}
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		String button = e.getActionCommand();
+//		if (button.equals("Convert again")) {
+//			new ThreeVariableScreen(new TruthTable());
+//			this.dispose();
+//		}
+//	}
 	
 }

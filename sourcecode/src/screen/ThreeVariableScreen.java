@@ -12,19 +12,16 @@ import table.TruthTable;
 
 public class ThreeVariableScreen extends JFrame {
 
-	protected TruthTable table;
-	protected JFrame stage;
+	public static JFXPanel fxPanel;
 
 
-	public ThreeVariableScreen(TruthTable table) {
+	public ThreeVariableScreen() {
 		
 		super();
-		JFrame stage = new JFrame();
-		this.table = table;
 	
-        Dimension d = new Dimension(500,600);
+        Dimension d = new Dimension(900, 400);
 		
-		JFXPanel fxPanel = new JFXPanel();
+		fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("3 Variable Truth Table");
 		this.setVisible(true);
@@ -34,8 +31,8 @@ public class ThreeVariableScreen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/3_Variable.fxml"));
-					ThreeVariableScreenController controller = new ThreeVariableScreenController(table, stage);
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/new_3_Variable.fxml"));
+					ThreeVariableScreenController controller = new ThreeVariableScreenController();
 					loader.setController(controller);
 					Parent root = loader.load();
 					fxPanel.setScene(new Scene(root, 1000, 800));
@@ -48,7 +45,7 @@ public class ThreeVariableScreen extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new ThreeVariableScreen(new TruthTable());
+		new ThreeVariableScreen();
 	}
 	
 }

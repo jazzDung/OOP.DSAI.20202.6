@@ -98,7 +98,7 @@ public class ThreeVariableColumnBlock extends JPanel {
 		}
 		
 		//Set row height
-		Table.setRowHeight(20);
+		Table.setRowHeight(40);
 
 		
 		for (int i = 0; i < 6; i++) {

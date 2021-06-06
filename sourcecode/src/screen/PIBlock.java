@@ -63,7 +63,18 @@ public class PIBlock extends JPanel{
 //		}
 				
 		//Set row height
-		Table.setRowHeight(20);
+//		Table.setRowHeight(20);
+		
+		
+		// Allign center
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+		for (int i = 0; i < piTable.getColumnName().size() + 1; i++) {
+			Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+		}
+		
+		//Set row height
+		Table.setRowHeight(40);
 				
 		this.add(Box.createVerticalGlue());
 		this.add(Table.getTableHeader(), BorderLayout.NORTH);

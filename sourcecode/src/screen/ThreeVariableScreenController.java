@@ -1,8 +1,10 @@
 package screen;
 
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +16,6 @@ import table.TruthTable;
 
 public class ThreeVariableScreenController {
 
-	protected JFrame stage;
 	protected TruthTable table;
 	protected ArrayList<Object> rowValue0;
 	protected ArrayList<Object> rowValue1;
@@ -25,99 +26,122 @@ public class ThreeVariableScreenController {
 	protected ArrayList<Object> rowValue6;
 	protected ArrayList<Object> rowValue7;
 	
-	public ThreeVariableScreenController(TruthTable table, JFrame stage) {
+	public ThreeVariableScreenController() {
 		
 		super();
-		this.table = table;
-		this.stage = stage;
-		this.table.setNumberOfVariable(3);
-		
+		this.table = new TruthTable(3);		
 	}
 	
     @FXML
     void btnThreeVariablePressed(ActionEvent event) {
-    	new ThreeVariableScreen(new TruthTable());
-    	stage.dispose();
+//    	new ThreeVariableScreen(new TruthTable());
+////    	stage.dispose();
+//		JFrame f = (JFrame) SwingUtilities.getWindowAncestor(ThreeVariableScreen.fxPanel);
+//    	f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
     }
 
     @FXML
     void btnFourVariablePressed(ActionEvent event) {
-		new FourVariableScreen(new TruthTable());
-    	stage.dispose();
+		new FourVariableScreen(new TruthTable(4));
+//    	stage.dispose();
+		JFrame f = (JFrame) SwingUtilities.getWindowAncestor(ThreeVariableScreen.fxPanel);
+    	f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
     }
 	
+//    @FXML 
+//    public TruthTable CreateTruthTable() {
+//    			
+//		rowValue0 = new ArrayList<>(Arrays.asList("0","0","0"));
+//		rowValue1 = new ArrayList<>(Arrays.asList("0","0","1"));
+//		rowValue2 = new ArrayList<>(Arrays.asList("0","1","0"));
+//		rowValue3 = new ArrayList<>(Arrays.asList("0","1","1"));
+//		rowValue4 = new ArrayList<>(Arrays.asList("1","0","0"));
+//		rowValue5 = new ArrayList<>(Arrays.asList("1","0","1"));
+//		rowValue6 = new ArrayList<>(Arrays.asList("1","1","0"));
+//		rowValue7 = new ArrayList<>(Arrays.asList("1","1","1"));
+//		
+//    	if (this.row0.getSelectedToggle() == row00) {
+//    		rowValue0.add("0");
+//    	} else {this.rowValue0.add("1");}
+//    	
+//    	if (this.row1.getSelectedToggle() == row10) {
+//    		rowValue1.add("0");
+//    	} else {this.rowValue1.add("1");}
+//    	
+//    	if (this.row2.getSelectedToggle() == row20) {
+//    		rowValue2.add("0");
+//    	} else {this.rowValue2.add("1");}
+//    	
+//    	if (this.row3.getSelectedToggle() == row30) {
+//    		rowValue3.add("0");
+//    	} else {this.rowValue3.add("1");}
+//    	
+//    	if (this.row4.getSelectedToggle() == row40) {
+//    		rowValue4.add("0");
+//    	} else {this.rowValue4.add("1");}
+//    	
+//    	if (this.row5.getSelectedToggle() == row50) {
+//    		rowValue5.add("0");
+//    	} else {this.rowValue5.add("1");}
+//    	
+//    	if (this.row6.getSelectedToggle() == row60) {
+//    		rowValue6.add("0");
+//    	} else {this.rowValue6.add("1");}
+//    	
+//    	if (this.row7.getSelectedToggle() == row70) {
+//    		rowValue7.add("0");
+//    	} else {this.rowValue7.add("1");}
+//    	
+//    	this.table.columnNames = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
+//        for (int i = 0; i < 8; i ++) {
+//            this.table.rowNames.add(String.valueOf(i));
+//        }
+//		this.table.values.add(rowValue0);
+//		this.table.values.add(rowValue1);
+//		this.table.values.add(rowValue2);
+//		this.table.values.add(rowValue3);
+//		this.table.values.add(rowValue4);
+//		this.table.values.add(rowValue5);
+//		this.table.values.add(rowValue6);
+//		this.table.values.add(rowValue7);
+//		
+//		return this.table;
+//    }
+    
     @FXML 
-    public TruthTable CreateTruthTable() {
-    			
-		rowValue0 = new ArrayList<>(Arrays.asList("0","0","0"));
-		rowValue1 = new ArrayList<>(Arrays.asList("0","0","1"));
-		rowValue2 = new ArrayList<>(Arrays.asList("0","1","0"));
-		rowValue3 = new ArrayList<>(Arrays.asList("0","1","1"));
-		rowValue4 = new ArrayList<>(Arrays.asList("1","0","0"));
-		rowValue5 = new ArrayList<>(Arrays.asList("1","0","1"));
-		rowValue6 = new ArrayList<>(Arrays.asList("1","1","0"));
-		rowValue7 = new ArrayList<>(Arrays.asList("1","1","1"));
-		
-    	if (this.row0.getSelectedToggle() == row00) {
-    		rowValue0.add("0");
-    	} else {this.rowValue0.add("1");}
+    public void fillTruthTable() {
+    	if (this.row0.getSelectedToggle() == row00) {table.values.get(0).add("0");} else {table.values.get(0).add("1");}
     	
-    	if (this.row1.getSelectedToggle() == row10) {
-    		rowValue1.add("0");
-    	} else {this.rowValue1.add("1");}
+    	if (this.row1.getSelectedToggle() == row10) {table.values.get(1).add("0");} else {table.values.get(1).add("1");}
     	
-    	if (this.row2.getSelectedToggle() == row20) {
-    		rowValue2.add("0");
-    	} else {this.rowValue2.add("1");}
+    	if (this.row2.getSelectedToggle() == row20) {table.values.get(2).add("0");} else {table.values.get(2).add("1");}
     	
-    	if (this.row3.getSelectedToggle() == row30) {
-    		rowValue3.add("0");
-    	} else {this.rowValue3.add("1");}
+    	if (this.row3.getSelectedToggle() == row30) {table.values.get(3).add("0");} else {table.values.get(3).add("1");}
     	
-    	if (this.row4.getSelectedToggle() == row40) {
-    		rowValue4.add("0");
-    	} else {this.rowValue4.add("1");}
+    	if (this.row4.getSelectedToggle() == row40) {table.values.get(4).add("0");} else {table.values.get(4).add("1");}
     	
-    	if (this.row5.getSelectedToggle() == row50) {
-    		rowValue5.add("0");
-    	} else {this.rowValue5.add("1");}
+    	if (this.row5.getSelectedToggle() == row50) {table.values.get(5).add("0");} else {table.values.get(5).add("1");}
     	
-    	if (this.row6.getSelectedToggle() == row60) {
-    		rowValue6.add("0");
-    	} else {this.rowValue6.add("1");}
+    	if (this.row6.getSelectedToggle() == row60) {table.values.get(6).add("0");} else {table.values.get(6).add("1");}
     	
-    	if (this.row7.getSelectedToggle() == row70) {
-    		rowValue7.add("0");
-    	} else {this.rowValue7.add("1");}
-    	
-    	this.table.columnNames = new ArrayList<String>(Arrays.asList("A", "B", "C", "Y Value"));
-        for (int i = 0; i < 8; i ++) {
-            this.table.rowNames.add(String.valueOf(i));
-        }
-		this.table.values.add(rowValue0);
-		this.table.values.add(rowValue1);
-		this.table.values.add(rowValue2);
-		this.table.values.add(rowValue3);
-		this.table.values.add(rowValue4);
-		this.table.values.add(rowValue5);
-		this.table.values.add(rowValue6);
-		this.table.values.add(rowValue7);
-		
-		return this.table;
+    	if (this.row7.getSelectedToggle() == row70) {table.values.get(7).add("0");} else {table.values.get(7).add("1");}
     }
     
     @FXML
     void btnSubmitPressed(ActionEvent event) {
     	if (this.OutputType.getSelectedToggle() == POS) {
-    		CreateTruthTable().NegateTable();
+    		fillTruthTable();
+    		table.NegateTable();
+    		table.printTruthTable();
     		new OutputScreen(table, "POS");
-    		stage.dispose();
     	}
     	else if (this.OutputType.getSelectedToggle() == SOP) {
-      		CreateTruthTable();
+      		fillTruthTable();
+      		table.printTruthTable();
       		new OutputScreen(table, "SOP");
-    		stage.dispose();
     	}
+		JFrame f = (JFrame) SwingUtilities.getWindowAncestor(ThreeVariableScreen.fxPanel);
+    	f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
     }
     @FXML
     private RadioButton SOP;

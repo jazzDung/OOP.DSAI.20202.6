@@ -16,9 +16,9 @@ public class TruthTable extends Table {
 		return numberOfVariable;
 	}
 	
-	public TruthTable() {
-		values = new ArrayList<ArrayList<Object>>();
-	}
+//	public TruthTable() {
+//		values = new ArrayList<ArrayList<Object>>();
+//	}
 	
 	public ArrayList<String> getAllMinTerms() throws NameNotFoundException {
 		ArrayList<String> minTermNames = new ArrayList<String>();
@@ -39,14 +39,14 @@ public class TruthTable extends Table {
 			for (int i = 0; i < 8; i ++) {
 				rowName.add(String.valueOf(i));
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(9, 4));
 
 			
@@ -56,22 +56,22 @@ public class TruthTable extends Table {
 			for (int i = 0; i < 16; i ++) {
 				rowName.add(String.valueOf(i));		
 			}
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1", "0")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "0", "1")));
-			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "0", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("0", "1", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "0", "1", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "0", "1")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "0")));
+			values.add(new ArrayList<Object>(Arrays.asList("1", "1", "1", "1")));
 			super.size = new ArrayList<Integer>(Arrays.asList(16, 4));
 
 		} else {
@@ -95,9 +95,9 @@ public class TruthTable extends Table {
 //		size.add(Column);
 //	}
 	
-	public void setNumberOfVariable(int numberOfVariable) {
-		this.numberOfVariable = numberOfVariable;
-	}
+//	public void setNumberOfVariable(int numberOfVariable) {
+//		this.numberOfVariable = numberOfVariable;
+//	}
 
 	public ArrayList<ArrayList<Object>> NegateTable() {
 		for (int i = 0; i < this.values.size(); i++) {
@@ -121,5 +121,20 @@ public class TruthTable extends Table {
 	public static void main(String[] args) {
 		TruthTable t = new TruthTable(3);
 		System.out.println(t.getRowName());
+	}
+	
+	public void printTruthTable() {
+		System.out.println("Printing truth table");
+		System.out.println("----------");
+		for (String rowName : this.getRowName()) {
+			try {
+				System.out.println(this.getItemsFromRowName(rowName));
+			} catch (NameNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("----------");
+
 	}
 }

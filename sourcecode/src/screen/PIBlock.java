@@ -36,24 +36,26 @@ public class PIBlock extends JPanel{
 		System.out.println("dataWithRow");
 		System.out.println(dataWithRow);
 		
-		String[][] dataWithRowArray = new String[dataWithRow.size()][dataWithRow.get(0).size()];
-		for(int i=0; i<dataWithRow.size(); i++) {
-			for(int j=0; j<dataWithRow.get(0).size(); j++) {
-				dataWithRowArray[i][j] = (String) dataWithRow.get(i).get(j);
+		if (dataWithRow.isEmpty()) Table = new JTable();
+		else {
+			String[][] dataWithRowArray = new String[dataWithRow.size()][dataWithRow.get(0).size()];
+			for(int i=0; i<dataWithRow.size(); i++) {
+				for(int j=0; j<dataWithRow.get(0).size(); j++) {
+					dataWithRowArray[i][j] = (String) dataWithRow.get(i).get(j);
+				}
 			}
-		}
-		
-		
-		ArrayList<String> col = new ArrayList<String>();
-		col.add("PI");
-		col.addAll(this.piTable.getColumnName());
-		String[] columnNames = new String[col.size()];
-		for(int i=0; i<col.size(); i++) {
-			columnNames[i] = col.get(i);
-		}
-//		String[] columnNames = (String[]) col.toArray();
-		
-		Table = new JTable(dataWithRowArray, columnNames);
+			
+			
+			ArrayList<String> col = new ArrayList<String>();
+			col.add("PI");
+			col.addAll(this.piTable.getColumnName());
+			String[] columnNames = new String[col.size()];
+			for(int i=0; i<col.size(); i++) {
+				columnNames[i] = col.get(i);
+			}
+	//		String[] columnNames = (String[]) col.toArray();
+			
+			Table = new JTable(dataWithRowArray, columnNames);
 		
 		// Allign center
 //		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -66,16 +68,17 @@ public class PIBlock extends JPanel{
 //		Table.setRowHeight(20);
 		
 		
-		// Allign center
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-		for (int i = 0; i < piTable.getColumnName().size() + 1; i++) {
-			Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+			// Allign center
+			DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+			centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+			for (int i = 0; i < piTable.getColumnName().size() + 1; i++) {
+				Table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+			}
+			
+			//Set row height
+			Table.setRowHeight(40);
 		}
 		
-		//Set row height
-		Table.setRowHeight(40);
-				
 		this.add(Box.createVerticalGlue());
 		this.add(Table.getTableHeader(), BorderLayout.NORTH);
 		this.add(Table);

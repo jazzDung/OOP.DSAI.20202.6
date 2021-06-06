@@ -5,10 +5,10 @@ import exception.NameNotFoundException;
 
 public class Table {
 	
-	public ArrayList<String> rowNames = new ArrayList<String>();
-	public ArrayList<String> columnNames = new ArrayList<String>();
-	public ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
-	public ArrayList<Integer> size;
+	protected ArrayList<String> rowNames = new ArrayList<String>();
+	protected ArrayList<String> columnNames = new ArrayList<String>();
+	protected ArrayList<ArrayList<Object>> values = new ArrayList<ArrayList<Object>>();
+	protected ArrayList<Integer> size;
 	
 	public ArrayList<String> getRowName() {
 		return rowNames;
@@ -39,9 +39,14 @@ public class Table {
 		}
 	}
 	
-	public void setYValue(String rowname, String value) throws NameNotFoundException {
+	public void setYValue(String rowname, String value) {
 		if ((value.equals("0")) || (value.equals("1"))) {
-			getItemsFromRowName(rowname).set(-1, value);
+			try {
+				getItemsFromRowName(rowname).set(this.getColumnName().size() - 1, value);
+			} catch (NameNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else {
 //			throw exception or smt

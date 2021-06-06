@@ -110,21 +110,21 @@ public class ThreeVariableScreenController {
     
     @FXML 
     public void fillTruthTable() {
-    	if (this.row0.getSelectedToggle() == row00) {table.values.get(0).add("0");} else {table.values.get(0).add("1");}
+    	if (this.row0.getSelectedToggle() == row00) {table.setYValue("0", "0");} else {table.setYValue("0", "1");}
     	
-    	if (this.row1.getSelectedToggle() == row10) {table.values.get(1).add("0");} else {table.values.get(1).add("1");}
+    	if (this.row1.getSelectedToggle() == row10) {table.setYValue("1", "0");} else {table.setYValue("1", "1");}
     	
-    	if (this.row2.getSelectedToggle() == row20) {table.values.get(2).add("0");} else {table.values.get(2).add("1");}
+    	if (this.row2.getSelectedToggle() == row20) {table.setYValue("2", "0");} else {table.setYValue("2", "1");}
     	
-    	if (this.row3.getSelectedToggle() == row30) {table.values.get(3).add("0");} else {table.values.get(3).add("1");}
+    	if (this.row3.getSelectedToggle() == row30) {table.setYValue("3", "0");} else {table.setYValue("3", "1");}
     	
-    	if (this.row4.getSelectedToggle() == row40) {table.values.get(4).add("0");} else {table.values.get(4).add("1");}
+    	if (this.row4.getSelectedToggle() == row40) {table.setYValue("4", "0");} else {table.setYValue("4", "1");}
     	
-    	if (this.row5.getSelectedToggle() == row50) {table.values.get(5).add("0");} else {table.values.get(5).add("1");}
+    	if (this.row5.getSelectedToggle() == row50) {table.setYValue("5", "0");} else {table.setYValue("5", "1");}
     	
-    	if (this.row6.getSelectedToggle() == row60) {table.values.get(6).add("0");} else {table.values.get(6).add("1");}
+    	if (this.row6.getSelectedToggle() == row60) {table.setYValue("6", "0");} else {table.setYValue("6", "1");}
     	
-    	if (this.row7.getSelectedToggle() == row70) {table.values.get(7).add("0");} else {table.values.get(7).add("1");}
+    	if (this.row7.getSelectedToggle() == row70) {table.setYValue("7", "0");} else {table.setYValue("7", "1");}
     }
     
     @FXML

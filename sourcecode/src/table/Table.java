@@ -38,21 +38,6 @@ public class Table {
 			return colItems;
 		}
 	}
-	
-	public void setYValue(String rowname, String value) {
-		if ((value.equals("0")) || (value.equals("1"))) {
-			try {
-				getItemsFromRowName(rowname).set(this.getColumnName().size() - 1, value);
-			} catch (NameNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else {
-//			throw exception or smt
-		}
-	}
-	
 
 	public void setRowNames(ArrayList<String> rowNames) {
 		this.rowNames = rowNames;

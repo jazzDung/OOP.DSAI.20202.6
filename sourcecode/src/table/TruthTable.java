@@ -118,6 +118,20 @@ public class TruthTable extends Table {
 		return this.values;
 	}
 	
+	public void setYValue(String rowname, String value) {
+		if ((value.equals("0")) || (value.equals("1"))) {
+			try {
+				getItemsFromRowName(rowname).set(this.getColumnName().size() - 1, value);
+			} catch (NameNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+//			throw exception or smt
+		}
+	}
+	
 	public static void main(String[] args) {
 		TruthTable t = new TruthTable(3);
 		System.out.println(t.getRowName());
